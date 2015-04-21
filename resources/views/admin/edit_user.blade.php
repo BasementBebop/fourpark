@@ -8,8 +8,6 @@
 				Edit User
 			</div>
 		</div>
-
 		@include('admin.form')
-		
 	</div>
 @stop
