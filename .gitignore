@@ -1,3 +1,6 @@
 /vendor
 /node_modules
 .env
+/public/assets/admin
+/public/assets/global
+/public/assets/sass

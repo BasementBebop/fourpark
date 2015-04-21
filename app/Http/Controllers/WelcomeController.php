@@ -30,7 +30,12 @@ class WelcomeController extends Controller {
 	 */
 	public function index()
 	{
-		return view('welcome');
+		return view('layouts.master');
+	}
+
+	public function showUsers()
+	{
+		return view('admin.users');
 	}
 
 }
