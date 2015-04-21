@@ -52,5 +52,9 @@ class WelcomeController extends Controller {
 	{
 		return view('admin.new_user');
 	}
+	public function editUser()
+	{
+		return view('admin.edit_user');
+	}
 
 }

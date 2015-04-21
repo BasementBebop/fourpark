@@ -1,6 +1,7 @@
 @extends('layouts.master')
 
 @section('content')
+
 	<div class="row">
 		<div class="col-md-12">
 			<!-- BEGIN SAMPLE TABLE PORTLET-->
@@ -55,7 +56,7 @@
 								 No
 							</td>
 							<td>
-								<a href="javascript:;" class="btn default btn-sm purple">
+								<a href="edit_user" class="btn default btn-sm purple">
 								<i class="fa fa-edit"></i> Edit </a>
 							</td>
 							<td>
@@ -74,7 +75,7 @@
 								 Yes
 							</td>
 							<td>
-								<a href="javascript:;" class="btn default btn-sm purple">
+								<a href="edit_user" class="btn default btn-sm purple">
 								<i class="fa fa-edit"></i> Edit </a>
 							</td>
 							<td>
@@ -93,7 +94,7 @@
 								 Yes
 							</td>
 							<td>
-								<a href="javascript:;" class="btn default btn-sm purple">
+								<a href="edit_user" class="btn default btn-sm purple">
 								<i class="fa fa-edit"></i> Edit </a>
 							</td>
 							<td>
@@ -112,7 +113,7 @@
 								 No
 							</td>
 							<td>
-								<a href="javascript:;" class="btn default btn-sm purple">
+								<a href="edit_user" class="btn default btn-sm purple">
 								<i class="fa fa-edit"></i> Edit </a>
 							</td>
 							<td>
