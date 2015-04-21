@@ -38,4 +38,19 @@ class WelcomeController extends Controller {
 		return view('admin.users');
 	}
 
+	public function showSettings()
+	{
+		return view('admin.settings');
+	}
+
+	public function showLogin()
+	{
+		return view('admin.login');
+	}
+
+	public function showNewUser()
+	{
+		return view('admin.new_user');
+	}
+
 }
