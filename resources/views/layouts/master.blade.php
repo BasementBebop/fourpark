@@ -21,7 +21,7 @@
 	<link href="../../assets/global/plugins/uniform/css/uniform.default.css" rel="stylesheet" type="text/css"/>
 	<link href="../../assets/global/plugins/bootstrap-switch/css/bootstrap-switch.min.css" rel="stylesheet" type="text/css"/>
 	<!-- END GLOBAL MANDATORY STYLES -->
-	
+
 	<!-- BEGIN PAGE LEVEL STYLES -->
 	<link rel="stylesheet" type="text/css" href="../../assets/global/plugins/select2/select2.css"/>
 	<link rel="stylesheet" type="text/css" href="../../assets/global/plugins/datatables/plugins/bootstrap/dataTables.bootstrap.css"/>
@@ -193,6 +193,7 @@
 <script src="../../assets/global/plugins/flot/jquery.flot.min.js" type="text/javascript"></script>
 <script src="../../assets/global/plugins/flot/jquery.flot.resize.min.js" type="text/javascript"></script>
 <script src="../../assets/global/plugins/flot/jquery.flot.categories.min.js" type="text/javascript"></script>
+<script type="text/javascript" src="../../assets/global/plugins/bootstrap-datepicker/js/bootstrap-datepicker.min.js"></script>
 <script src="../../assets/global/plugins/jquery.pulsate.min.js" type="text/javascript"></script>
 <script src="../../assets/global/plugins/bootstrap-daterangepicker/moment.min.js" type="text/javascript"></script>
 <script src="../../assets/global/plugins/bootstrap-daterangepicker/daterangepicker.js" type="text/javascript"></script>
@@ -209,6 +210,8 @@
 <script src="../../assets/admin/pages/scripts/index.js" type="text/javascript"></script>
 <script src="../../assets/admin/pages/scripts/tasks.js" type="text/javascript"></script>
 <script src="../../assets/admin/pages/scripts/table-editable.js"></script>
+<script src="../../assets/admin/pages/scripts/components-pickers.js"></script>
+
 <!-- END PAGE LEVEL SCRIPTS -->
 
 <script>
@@ -225,6 +228,7 @@ jQuery(document).ready(function() {
    Index.initMiniCharts();
    Tasks.initDashboardWidget();
    TableEditable.init();
+   ComponentsPickers.init();
 });
 </script>
 <!-- END JAVASCRIPTS -->

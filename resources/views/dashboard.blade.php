@@ -181,16 +181,18 @@
   				</a>
   			</div>
   		</div>
-  		<div class="portlet-body util-btn-margin-bottom-5">
+  		<div class="portlet-body">
   			<h4 class="block text-center">There is currently a parking spot available to you on <strong>5/12/14</strong></h4>
-  			<div class="clearfix">
-  				<a href="#add" class="btn btn-success btn-block" data-toggle="modal">
-  				Accept </a>
-  			</div>
-				<div class="clearfix">
-  				<a href="#deny" class="btn btn-warning btn-block" data-toggle="modal">
-  				Deny </a>
-  			</div>
+				<div class="portlet-body util-btn-margin-bottom-5">
+					<div class="clearfix">
+	  				<a href="#add" class="btn green-meadow btn-block" data-toggle="modal">
+	  				Accept </a>
+	  			</div>
+					<div class="clearfix">
+	  				<a href="#deny" class="btn red-sunglo btn-block" data-toggle="modal">
+	  				Deny </a>
+	  			</div>
+				</div>
   		</div>
   	</div>
   </div>
