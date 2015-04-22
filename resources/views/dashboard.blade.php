@@ -5,9 +5,67 @@
 <h3 class="page-title">
 	Welcome Chris! <small>CURRENTLY HAS PARKING SPOT</small>
 </h3>
+
+<!-- BEGIN PAGE CONTENT-->
+
+<!-- PARKING SPOT OWNER PORTLETS -->
+
 <div class="row">
-	<div class="col-md-6">
-		<!-- DAYS AWAY STATUS PORTLET-->
+  <!-- RELEASE DAYS (PARKING SPOT OWNER) PORTLET-->
+  <div class="col-md-6">
+	  <div class="portlet box yellow">
+		  <div class="portlet-title">
+			  <div class="caption">
+			    <i class="fa fa-gift"></i>Release Days
+			  </div>
+			  <div class="tools">
+  				<a href="javascript:;" class="collapse">
+  				</a>
+  				<a href="#portlet-config" data-toggle="modal" class="config">
+  				</a>
+  				<a href="javascript:;" class="reload">
+  				</a>
+  				<a href="javascript:;" class="remove">
+  				</a>
+  			</div>
+		  </div>
+      <!-- BEGIN FORM-->
+      <div class="portlet-body form">
+  			<form action="#" class="form-horizontal form-bordered">
+  				<div class="form-body">
+            <div class="form-group">
+              <div class="row">
+  						  <h4 class="text-center block">Release your parking spot for the specified date range: </h4>
+              </div>
+  						<div class="col-md-12">
+  							<div class="input-group input-large date-picker col-xs-offset-2 col-md-offset-1 input-daterange" data-date="10/11/2012" data-date-format="mm/dd/yyyy">
+  								<input type="text" class="form-control" name="from">
+  								<span class="input-group-addon">
+  								to </span>
+  								<input type="text" class="form-control" name="to">
+  							</div>
+  							<!-- /input-group -->
+  							<span class="help-block col-xs-offset-2 col-md-offset-1">
+  							Select date range </span>
+  						</div>
+  					</div>
+  				</div>
+        </form>
+			</div>
+      <!-- END FORM-->
+      <div class="portlet-body util-btn-margin-bottom-5">
+  			<div class="clearfix">
+  				<a href="javascript:;" class="btn btn-warning btn-block">
+  				Submit </a>
+  			</div>
+  		</div>
+		</div>
+  </div>
+	<!-- END PORTLET-->
+
+
+  <!-- STATUS OF RELEASED DAYS (PARKING SPOT OWNER) PORTLET-->
+  <div class="col-md-6">
 		<div class="portlet box red">
 			<div class="portlet-title">
 				<div class="caption">
@@ -46,7 +104,7 @@
 							 Bruce Wayne
 						</td>
             <td>
-							<a href="javascript:;" class="btn default btn-xs purple">
+							<a href="javascript:;" class="btn default btn-xs red disabled">
 							<i class="fa fa-edit"></i> Reclaim </a>
 						</td>
 					</tr>
@@ -58,7 +116,7 @@
 							 Mark Wahlberg
 						</td>
             <td>
-							<a href="javascript:;" class="btn default btn-xs purple">
+							<a href="javascript:;" class="btn default btn-xs red disabled">
 							<i class="fa fa-edit"></i> Reclaim </a>
 						</td>
 					</tr>
@@ -71,7 +129,7 @@
 							Not Yet Claimed </span>
 						</td>
             <td>
-							<a href="javascript:;" class="btn default btn-xs purple">
+							<a href="javascript:;" class="btn default btn-xs red">
 							<i class="fa fa-edit"></i> Reclaim </a>
 						</td>
 					</tr>
@@ -84,7 +142,7 @@
 							Not Yet Claimed </span>
 						</td>
             <td>
-							<a href="javascript:;" class="btn default btn-xs purple">
+							<a href="javascript:;" class="btn default btn-xs red">
 							<i class="fa fa-edit"></i> Reclaim </a>
 						</td>
 					</tr>
@@ -93,5 +151,52 @@
 				</div>
 			</div>
 		</div>
+  </div>
+  <!-- END STATUS OF RELEASED DAYS PORTLET-->
+
+</div> <!-- END ROW -->
+
+<!-- END PARKING SPOT OWNER PORTLETS -->
+
+<!-- NON-PARKING SPOT OWNER PORTLETS -->
+
+<div class="row">
+
+  <!-- BEGIN ALERT PORTLET-->
+  <div class="col-md-6">
+
+  	<div class="portlet box green ">
+  		<div class="portlet-title">
+  			<div class="caption">
+  				<i class="fa fa-gift"></i>Parking Spot Available
+  			</div>
+  			<div class="tools">
+  				<a href="javascript:;" class="collapse">
+  				</a>
+  				<a href="#portlet-config" data-toggle="modal" class="config">
+  				</a>
+  				<a href="javascript:;" class="reload">
+  				</a>
+  				<a href="javascript:;" class="remove">
+  				</a>
+  			</div>
+  		</div>
+  		<div class="portlet-body util-btn-margin-bottom-5">
+  			<h4 class="block text-center">There is currently a parking spot available to you on 5/12/14!</h4>
+  			<div class="clearfix">
+  				<a href="javascript:;" class="btn btn-success btn-block">
+  				Accept </a>
+  			</div>
+  		</div>
+  	</div>
+  </div>
+	<!-- END BUTTONS PORTLET-->
+
+
+
+
+
+</div> <!-- END ROW -->
+<!-- END NON-PARKING SPOT OWNER PORTLETS -->
 
 @stop
