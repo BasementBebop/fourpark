@@ -73,10 +73,8 @@
 		</div>
 	</div>
 	<!-- END PARKING SPOT RELEASE MODAL-->
-
-
-  <!-- STATUS OF RELEASED DAYS (PARKING SPOT OWNER) PORTLET-->
-  <div class="col-md-6">
+    <!-- STATUS OF RELEASED DAYS (PARKING SPOT OWNER) PORTLET-->
+    <div class="col-md-6">
 		<div class="portlet box blue">
 			<div class="portlet-title">
 				<div class="caption">
@@ -152,40 +150,36 @@
 				</div>
 			</div>
 		</div>
-  </div>
+    </div>
   <!-- END STATUS OF RELEASED DAYS PORTLET-->
-
-</div> <!-- END ROW -->
-
+</div>
+<!-- END ROW -->
 <!-- END PARKING SPOT OWNER PORTLETS -->
 
 <!-- NON-PARKING SPOT OWNER PORTLETS -->
-
 <div class="row">
-
-  <!-- BEGIN PARKING SPOT AVAILABLE PORTLET-->
-  <div class="col-md-6">
-
-  	<div class="portlet box blue">
-  		<div class="portlet-title">
-  			<div class="caption">
-  				Parking Spot Available
-  			</div>
-  		</div>
-  		<div class="portlet-body">
-  			<h4 class="block text-center">There is currently a parking spot available to you on <strong>5/12/14</strong></h4>
+    <!-- BEGIN PARKING SPOT AVAILABLE PORTLET-->
+    <div class="col-md-6">
+	  	<div class="portlet box blue">
+	  		<div class="portlet-title">
+	  			<div class="caption">
+	  				Parking Spot Available
+	  			</div>
+	  		</div>
+	  		<div class="portlet-body">
+	  			<h4 class="block text-center">There is currently a parking spot available to you on <strong>5/12/14</strong></h4>
 				<div class="portlet-body util-btn-margin-bottom-5">
 					<div class="clearfix">
-	  				<a href="#add" class="btn green-meadow btn-block" data-toggle="modal">
-	  				Accept </a>
-	  			</div>
+		  				<a href="#add" class="btn green-meadow btn-block" data-toggle="modal">
+		  				Accept </a>
+	  				</div>
 					<div class="clearfix">
-	  				<a href="#deny" class="btn red-intense btn-block" data-toggle="modal">
-	  				Deny </a>
-	  			</div>
+		  				<a href="#deny" class="btn red-intense btn-block" data-toggle="modal">
+		  				Deny </a>
+		  			</div>
 				</div>
-  		</div>
-  	</div>
+	  		</div>
+	  	</div>
   </div>
 	<!-- END PARKING SPOT AVAILABLE PORTLET-->
 
