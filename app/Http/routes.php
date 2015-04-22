@@ -11,13 +11,14 @@
 |
 */
 
-Route::get('/', 'WelcomeController@dashboard');
-Route::get('/users', 'WelcomeController@showUsers');
-Route::get('/settings', 'WelcomeController@showSettings');
-Route::get('/login', 'WelcomeController@showLogin');
-Route::get('/dashboard', 'WelcomeController@dashboard');
+Route::get('login', 'LoginController@index');
 
-Route::get('home', 'HomeController@index');
+Route::get('/', 'UsersController@index');
+Route::get('dashboard', 'UsersController@index');
+Route::get('settings', 'UsersController@edit');
+
+Route::get('users', 'AdminsController@showUsers');
+
 
 Route::controllers([
 	'auth' => 'Auth\AuthController',
