@@ -21,6 +21,12 @@
 	<link href="../../assets/global/plugins/uniform/css/uniform.default.css" rel="stylesheet" type="text/css"/>
 	<link href="../../assets/global/plugins/bootstrap-switch/css/bootstrap-switch.min.css" rel="stylesheet" type="text/css"/>
 	<!-- END GLOBAL MANDATORY STYLES -->
+	
+	<!-- BEGIN PAGE LEVEL STYLES -->
+	<link rel="stylesheet" type="text/css" href="../../assets/global/plugins/select2/select2.css"/>
+	<link rel="stylesheet" type="text/css" href="../../assets/global/plugins/datatables/plugins/bootstrap/dataTables.bootstrap.css"/>
+	<!-- END PAGE LEVEL STYLES -->
+
 	<!-- BEGIN THEME STYLES -->
 	<link href="../../assets/global/css/components.css" id="style_components" rel="stylesheet" type="text/css"/>
 	<link href="../../assets/global/css/plugins.css" rel="stylesheet" type="text/css"/>
@@ -170,6 +176,13 @@
 <script src="../../assets/global/plugins/bootstrap-switch/js/bootstrap-switch.min.js" type="text/javascript"></script>
 <!-- END CORE PLUGINS -->
 <!-- BEGIN PAGE LEVEL PLUGINS -->
+
+<script type="text/javascript" src="../../assets/global/plugins/select2/select2.min.js"></script>
+<script type="text/javascript" src="../../assets/global/plugins/datatables/media/js/jquery.dataTables.min.js"></script>
+<script type="text/javascript" src="../../assets/global/plugins/datatables/plugins/bootstrap/dataTables.bootstrap.js"></script>
+
+
+
 <script src="../../assets/global/plugins/jqvmap/jqvmap/jquery.vmap.js" type="text/javascript"></script>
 <script src="../../assets/global/plugins/jqvmap/jqvmap/maps/jquery.vmap.russia.js" type="text/javascript"></script>
 <script src="../../assets/global/plugins/jqvmap/jqvmap/maps/jquery.vmap.world.js" type="text/javascript"></script>
@@ -195,13 +208,14 @@
 <script src="../../assets/admin/layout/scripts/demo.js" type="text/javascript"></script>
 <script src="../../assets/admin/pages/scripts/index.js" type="text/javascript"></script>
 <script src="../../assets/admin/pages/scripts/tasks.js" type="text/javascript"></script>
+<script src="../../assets/admin/pages/scripts/table-editable.js"></script>
 <!-- END PAGE LEVEL SCRIPTS -->
+
 <script>
 jQuery(document).ready(function() {    
    Metronic.init(); // init metronic core componets
    Layout.init(); // init layout
    QuickSidebar.init(); // init quick sidebar
-Demo.init(); // init demo features
    Index.init();   
    Index.initDashboardDaterange();
    Index.initJQVMAP(); // init index page's custom scripts
@@ -210,6 +224,7 @@ Demo.init(); // init demo features
    Index.initChat();
    Index.initMiniCharts();
    Tasks.initDashboardWidget();
+   TableEditable.init();
 });
 </script>
 <!-- END JAVASCRIPTS -->

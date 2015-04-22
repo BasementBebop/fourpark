@@ -15,8 +15,6 @@ Route::get('/', 'WelcomeController@index');
 Route::get('/users', 'WelcomeController@showUsers');
 Route::get('/settings', 'WelcomeController@showSettings');
 Route::get('/login', 'WelcomeController@showLogin');
-Route::get('/new_user', 'WelcomeController@showNewUser');
-Route::get('/edit_user', 'WelcomeController@editUser');
 
 Route::get('home', 'HomeController@index');
 

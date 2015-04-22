@@ -14,20 +14,26 @@
 			<form action="#" class="form-horizontal">
 				<div class="form-body">
 					<div class="form-group">
-						<label class="col-md-3 control-label">Name</label>
-						<div class="col-md-9">
-							<input type="text" class="form-control" placeholder="Enter name">
+						<label class="col-md-4 control-label">First Name</label>
+						<div class="col-md-8">
+							<input type="text" class="form-control" placeholder="Enter first name">
 						</div>
 					</div>
 					<div class="form-group">
-						<label class="col-md-3 control-label">Phone number</label>
-						<div class="col-md-9">
+						<label class="col-md-4 control-label">Last Name</label>
+						<div class="col-md-8">
+							<input type="text" class="form-control" placeholder="Enter last name">
+						</div>
+					</div>
+					<div class="form-group">
+						<label class="col-md-4 control-label">Phone number</label>
+						<div class="col-md-8">
 							<input type="text" class="form-control" placeholder="Phone number">
 						</div>
 					</div>
 					<div class="form-group">
-						<label class="col-md-3 control-label">Email Address</label>
-						<div class="col-md-9">
+						<label class="col-md-4 control-label">Email Address</label>
+						<div class="col-md-8">
 							<div class="input-group">
 								<span class="input-group-addon">
 								<i class="fa fa-envelope"></i>
@@ -37,8 +43,8 @@
 						</div>
 					</div>
 					<div class="form-group">
-						<label class="col-md-3 control-label">Old Password</label>
-						<div class="col-md-9">
+						<label class="col-md-4 control-label">Old Password</label>
+						<div class="col-md-8">
 							<div class="input-group">
 								<input type="password" class="form-control" placeholder="Password">
 								<span class="input-group-addon">
@@ -48,8 +54,8 @@
 						</div>
 					</div>
 					<div class="form-group">
-						<label class="col-md-3 control-label">New Password</label>
-						<div class="col-md-9">
+						<label class="col-md-4 control-label">New Password</label>
+						<div class="col-md-8">
 							<div class="input-group">
 								<input type="password" class="form-control" placeholder="Password">
 								<span class="input-group-addon">
@@ -59,8 +65,8 @@
 						</div>
 					</div>
 					<div class="form-group">
-						<label class="col-md-3 control-label">Confirm Password</label>
-						<div class="col-md-9">
+						<label class="col-md-4 control-label">Confirm Password</label>
+						<div class="col-md-8">
 							<div class="input-group">
 								<input type="password" class="form-control" placeholder="Password">
 								<span class="input-group-addon">

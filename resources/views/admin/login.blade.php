@@ -19,7 +19,7 @@ License: You must have a valid license purchased only from themeforest(the above
 <!-- BEGIN HEAD -->
 <head>
 <meta charset="utf-8"/>
-<title>Metronic | Login Options - Login Form 1</title>
+<title>FourPark | Adpearance</title>
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
 <meta http-equiv="Content-type" content="text/html; charset=utf-8">
@@ -36,8 +36,8 @@ License: You must have a valid license purchased only from themeforest(the above
 <link href="../../assets/admin/pages/css/login.css" rel="stylesheet" type="text/css"/>
 <!-- END PAGE LEVEL SCRIPTS -->
 <!-- BEGIN THEME STYLES -->
-<link href="../../assets/global/css/components-md.css" id="style_components" rel="stylesheet" type="text/css"/>
-<link href="../../assets/global/css/plugins-md.css" rel="stylesheet" type="text/css"/>
+<link href="../../assets/global/css/components.css" id="style_components" rel="stylesheet" type="text/css"/>
+<link href="../../assets/global/css/plugins.css" rel="stylesheet" type="text/css"/>
 <link href="../../assets/admin/layout/css/layout.css" rel="stylesheet" type="text/css"/>
 <link href="../../assets/admin/layout/css/themes/darkblue.css" rel="stylesheet" type="text/css" id="style_color"/>
 <link href="../../assets/admin/layout/css/custom.css" rel="stylesheet" type="text/css"/>
@@ -46,7 +46,7 @@ License: You must have a valid license purchased only from themeforest(the above
 </head>
 <!-- END HEAD -->
 <!-- BEGIN BODY -->
-<body class="page-md login">
+<body class="login">
 <!-- BEGIN SIDEBAR TOGGLER BUTTON -->
 <div class="menu-toggler sidebar-toggler">
 </div>
@@ -121,7 +121,7 @@ License: You must have a valid license purchased only from themeforest(the above
 			<input class="form-control placeholder-no-fix" type="text" placeholder="Email" name="email"/>
 		</div>
 		<p class="hint">
-			 Enter your password below:
+			 Enter your password details below:
 		</p>
 		<div class="form-group">
 			<label class="control-label visible-ie8 visible-ie9">Password</label>
@@ -139,7 +139,7 @@ License: You must have a valid license purchased only from themeforest(the above
 	<!-- END REGISTRATION FORM -->
 </div>
 <div class="copyright">
-	 2015 © FourEyes by Adpearance
+	 2015 &copy; FourPark by Adpearance
 </div>
 <!-- END LOGIN -->
 <!-- BEGIN JAVASCRIPTS(Load javascripts at bottom, this will reduce page load time) -->
