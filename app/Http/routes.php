@@ -11,7 +11,7 @@
 |
 */
 
-Route::get('/', 'WelcomeController@index');
+Route::get('/', 'WelcomeController@dashboard');
 Route::get('/users', 'WelcomeController@showUsers');
 Route::get('/settings', 'WelcomeController@showSettings');
 Route::get('/login', 'WelcomeController@showLogin');
