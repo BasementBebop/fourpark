@@ -213,7 +213,7 @@
 		<div class="portlet box blue">
 			<div class="portlet-title">
 				<div class="caption">
-					<i class="fa fa-cogs"></i>My Upcoming Parking
+					My Upcoming Parking
 				</div>
 			</div>
 			<div class="portlet-body">
