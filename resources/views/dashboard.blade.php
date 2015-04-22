@@ -3,8 +3,10 @@
 @section('content')
 
 <h3 class="page-title">
-	Welcome Chris! <small>CURRENTLY HAS PARKING SPOT</small>
+	Welcome Chris!
+	<small class="label bg-green-meadow">CURRENTLY HAS PARKING SPOT</small>
 </h3>
+
 
 <!-- BEGIN PAGE CONTENT-->
 
@@ -13,10 +15,10 @@
 <div class="row">
   <!-- RELEASE DAYS (PARKING SPOT OWNER) PORTLET-->
   <div class="col-md-6">
-	  <div class="portlet box yellow">
+	  <div class="portlet box blue">
 		  <div class="portlet-title">
 			  <div class="caption">
-			    <i class="fa fa-gift"></i>Release Days
+			    Release Days
 			  </div>
 		  </div>
       <!-- BEGIN FORM-->
@@ -45,7 +47,7 @@
       <!-- END FORM-->
       <div class="portlet-body util-btn-margin-bottom-5">
   			<div class="clearfix">
-  				<a href="javascript:;" class="btn btn-warning btn-block">
+  				<a href="javascript:;" class="btn green-meadow btn-block">
   				Submit </a>
   			</div>
   		</div>
@@ -56,10 +58,10 @@
 
   <!-- STATUS OF RELEASED DAYS (PARKING SPOT OWNER) PORTLET-->
   <div class="col-md-6">
-		<div class="portlet box red">
+		<div class="portlet box blue">
 			<div class="portlet-title">
 				<div class="caption">
-					<i class="fa fa-cogs"></i>Status of Released Days
+					Status of Released Days
 				</div>
 			</div>
 			<div class="portlet-body">
@@ -84,7 +86,7 @@
 							 Bruce Wayne
 						</td>
             <td>
-							<a href="javascript:;" class="btn default btn-xs red disabled">
+							<a href="javascript:;" class="btn default btn-xs red-intense disabled">
 							<i class="fa fa-edit"></i> Reclaim </a>
 						</td>
 					</tr>
@@ -96,7 +98,7 @@
 							 Mark Wahlberg
 						</td>
             <td>
-							<a href="javascript:;" class="btn default btn-xs red disabled">
+							<a href="javascript:;" class="btn default btn-xs red-intense disabled">
 							<i class="fa fa-edit"></i> Reclaim </a>
 						</td>
 					</tr>
@@ -105,11 +107,11 @@
 							 6/13/15
 						</td>
 						<td>
-							<span class="label label-sm label-warning">
+							<span class="label label-sm bg-blue">
 							Not Yet Claimed </span>
 						</td>
             <td>
-							<a href="javascript:;" class="btn default btn-xs red">
+							<a href="javascript:;" class="btn default btn-xs red-intense">
 							<i class="fa fa-edit"></i> Reclaim </a>
 						</td>
 					</tr>
@@ -118,11 +120,11 @@
               6/23/15
 						</td>
             <td>
-              <span class="label label-sm label-warning">
+              <span class="label label-sm bg-blue">
 							Not Yet Claimed </span>
 						</td>
             <td>
-							<a href="javascript:;" class="btn default btn-xs red">
+							<a href="javascript:;" class="btn default btn-xs red-intense">
 							<i class="fa fa-edit"></i> Reclaim </a>
 						</td>
 					</tr>
@@ -145,10 +147,10 @@
   <!-- BEGIN PARKING SPOT AVAILABLE PORTLET-->
   <div class="col-md-6">
 
-  	<div class="portlet box green ">
+  	<div class="portlet box blue">
   		<div class="portlet-title">
   			<div class="caption">
-  				<i class="fa fa-gift"></i>Parking Spot Available
+  				Parking Spot Available
   			</div>
   		</div>
   		<div class="portlet-body">
@@ -159,7 +161,7 @@
 	  				Accept </a>
 	  			</div>
 					<div class="clearfix">
-	  				<a href="#deny" class="btn red-sunglo btn-block" data-toggle="modal">
+	  				<a href="#deny" class="btn red-intense btn-block" data-toggle="modal">
 	  				Deny </a>
 	  			</div>
 				</div>
@@ -180,7 +182,7 @@
 					 Congratulations! You now have parking for <strong>5/12/14</strong>. You can view all claimed future parking in your dashboard.
 				</div>
 				<div class="modal-footer">
-					<button type="button" class="btn btn-success" data-dismiss="modal">Got it</button>
+					<button type="button" class="btn green-meadow" data-dismiss="modal">Got it</button>
 				</div>
 			</div>
 		</div>

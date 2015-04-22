@@ -2,12 +2,18 @@
 
 @section('content')
 	
+
+
+
+
+
+
 	{{-- BEGIN EDIT SETTINGS PORTLET --}}
 	<div class="col-md-6">
-		<div class="portlet box green">
+		<div class="portlet box green-meadow">
 			<div class="portlet-title">
 				<div class="caption">
-					Edit Your Info
+					Edit Account Info
 				</div>
 			</div>
 			<div class="portlet-body form">
@@ -100,7 +106,7 @@
 				</div>
 			</div>
 			<div class="portlet-body">
-				<div class="scroller" style="height:100%" data-rail-visible="1" data-rail-color="yellow" data-handle-color="#a1b2bd">
+				<div class="scroller" style="height:300px" data-rail-visible="1" data-rail-color="yellow" data-handle-color="#a1b2bd">
 					<p class="bold">Parking spots will be assigned randomly.</p>
 					<p class="bold">I have a parking spot:</p>
 					<ul>
