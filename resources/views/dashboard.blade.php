@@ -162,7 +162,7 @@
 
 <div class="row">
 
-  <!-- BEGIN ALERT PORTLET-->
+  <!-- BEGIN PARKING SPOT AVAILABLE PORTLET-->
   <div class="col-md-6">
 
   	<div class="portlet box green ">
@@ -182,15 +182,39 @@
   			</div>
   		</div>
   		<div class="portlet-body util-btn-margin-bottom-5">
-  			<h4 class="block text-center">There is currently a parking spot available to you on 5/12/14!</h4>
+  			<h4 class="block text-center">There is currently a parking spot available to you on <strong>5/12/14</strong></h4>
   			<div class="clearfix">
-  				<a href="javascript:;" class="btn btn-success btn-block">
+  				<a href="#add" class="btn btn-success btn-block" data-toggle="modal">
   				Accept </a>
+  			</div>
+				<div class="clearfix">
+  				<a href="#deny" class="btn btn-warning btn-block" data-toggle="modal">
+  				Deny </a>
   			</div>
   		</div>
   	</div>
   </div>
-	<!-- END BUTTONS PORTLET-->
+	<!-- END PARKING SPOT AVAILABLE PORTLET-->
+
+	<!-- START PARKING SPOT ADD MODAL-->
+	<div class="modal fade" id="add" tabindex="-1" role="add" aria-hidden="true">
+		<div class="modal-dialog">
+			<div class="modal-content">
+				<div class="modal-header">
+					<button type="button" class="close" data-dismiss="modal" aria-hidden="true"></button>
+					<h4 class="modal-title">Parking successfully added</h4>
+				</div>
+				<div class="modal-body">
+					 Congratulations! You now have parking for <strong>5/12/14</strong>. You can view all claimed future parking in your dashboard.
+				</div>
+				<div class="modal-footer">
+					<button type="button" class="btn btn-success" data-dismiss="modal">Got it</button>
+				</div>
+			</div>
+		</div>
+	</div>
+	<!-- END PARKING SPOT ADD MODAL-->
+
 
 
 
