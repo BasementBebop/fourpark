@@ -18,16 +18,6 @@
 			  <div class="caption">
 			    <i class="fa fa-gift"></i>Release Days
 			  </div>
-			  <div class="tools">
-  				<a href="javascript:;" class="collapse">
-  				</a>
-  				<a href="#portlet-config" data-toggle="modal" class="config">
-  				</a>
-  				<a href="javascript:;" class="reload">
-  				</a>
-  				<a href="javascript:;" class="remove">
-  				</a>
-  			</div>
 		  </div>
       <!-- BEGIN FORM-->
       <div class="portlet-body form">
@@ -70,16 +60,6 @@
 			<div class="portlet-title">
 				<div class="caption">
 					<i class="fa fa-cogs"></i>Status of Released Days
-				</div>
-				<div class="tools">
-					<a href="javascript:;" class="collapse">
-					</a>
-					<a href="#portlet-config" data-toggle="modal" class="config">
-					</a>
-					<a href="javascript:;" class="reload">
-					</a>
-					<a href="javascript:;" class="remove">
-					</a>
 				</div>
 			</div>
 			<div class="portlet-body">
@@ -169,16 +149,6 @@
   		<div class="portlet-title">
   			<div class="caption">
   				<i class="fa fa-gift"></i>Parking Spot Available
-  			</div>
-  			<div class="tools">
-  				<a href="javascript:;" class="collapse">
-  				</a>
-  				<a href="#portlet-config" data-toggle="modal" class="config">
-  				</a>
-  				<a href="javascript:;" class="reload">
-  				</a>
-  				<a href="javascript:;" class="remove">
-  				</a>
   			</div>
   		</div>
   		<div class="portlet-body">

@@ -189,6 +189,7 @@
 	<script src="../../assets/global/plugins/flot/jquery.flot.min.js" type="text/javascript"></script>
 	<script src="../../assets/global/plugins/flot/jquery.flot.resize.min.js" type="text/javascript"></script>
 	<script src="../../assets/global/plugins/flot/jquery.flot.categories.min.js" type="text/javascript"></script>
+	<script type="text/javascript" src="../../assets/global/plugins/bootstrap-datepicker/js/bootstrap-datepicker.js"></script>
 	<script src="../../assets/global/plugins/jquery.pulsate.min.js" type="text/javascript"></script>
 	<script src="../../assets/global/plugins/bootstrap-daterangepicker/moment.min.js" type="text/javascript"></script>
 	<script src="../../assets/global/plugins/bootstrap-daterangepicker/daterangepicker.js" type="text/javascript"></script>
@@ -203,6 +204,7 @@
 	<script src="../../assets/admin/pages/scripts/index.js" type="text/javascript"></script>
 	<script src="../../assets/admin/pages/scripts/tasks.js" type="text/javascript"></script>
 	<script src="../../assets/admin/pages/scripts/table-editable.js"  type="text/javascript"></script>
+	<script src="../../assets/admin/pages/scripts/components-pickers.js"></script>
 	<!-- END PAGE LEVEL SCRIPTS -->
 
 	{{-- BEGIN CUSTOM SCRIPTS --}}
@@ -220,6 +222,7 @@
 	   Index.initMiniCharts();
 	   Tasks.initDashboardWidget();
 	   TableEditable.init();
+	   ComponentsPickers.init();
 	});
 	</script>
 	<!-- END JAVASCRIPTS -->
