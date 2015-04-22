@@ -2,12 +2,6 @@
 
 @section('content')
 	
-
-
-
-
-
-
 	{{-- BEGIN EDIT SETTINGS PORTLET --}}
 	<div class="col-md-6">
 		<div class="portlet box green-meadow">
@@ -20,6 +14,21 @@
 				<!-- BEGIN FORM-->
 				<form action="#" class="form-horizontal">
 					<div class="form-body">
+						<div class="form-group" data-toggle="buttons">
+							<label class="col-md-4 control-label">Alert Settings</label>
+							<div class="col-md-8">
+								<div class="btn-group" data-toggle="buttons">
+									<label class="btn btn-default active">
+									<input type="radio" class="toggle"> Email </label>
+									<label class="btn btn-default">
+									<input type="radio" class="toggle"> SMS </label>
+									<label class="btn btn-default">
+									<input type="radio" class="toggle"> Both </label>
+									<label class="btn btn-default">
+									<input type="radio" class="toggle"> None </label>
+								</div>							
+							</div>
+						</div>
 						<div class="form-group">
 							<label class="col-md-4 control-label">First Name</label>
 							<div class="col-md-8">
@@ -106,30 +115,28 @@
 				</div>
 			</div>
 			<div class="portlet-body">
-				<div class="scroller" style="height:300px" data-rail-visible="1" data-rail-color="yellow" data-handle-color="#a1b2bd">
-					<p class="bold">Parking spots will be assigned randomly.</p>
-					<p class="bold">I have a parking spot:</p>
-					<ul>
-						<li>You can give up your spot until 5pm the night before. After 5pm, no changes can be made until the next morning.</li>
-						<li>You can reclaim your spot if it has not been assigned to another employee.</li>
-					</ul>
-					<p class="bold">I want a parking spot:</p>
-					<ul>
-						<li>If you are assigned a spot, you have:
-							<ul>
-								<li>
-									30 minutes to accept at night
-								</li>
-								<li>
-									10 minutes to accept in the morning
-								</li>
-							</ul>
-						</li>
-						<li>
-							You can accept the spot, deny the spot, or do nothing.
-						</li>
-					</ul>
-				</div>
+				<p class="bold">Parking spots will be assigned randomly.</p>
+				<p class="bold">I have a parking spot:</p>
+				<ul>
+					<li>You can give up your spot until 5pm the night before. After 5pm, no changes can be made until the next morning.</li>
+					<li>You can reclaim your spot if it has not been assigned to another employee.</li>
+				</ul>
+				<p class="bold">I want a parking spot:</p>
+				<ul>
+					<li>If you are assigned a spot, you have:
+						<ul>
+							<li>
+								30 minutes to accept at night
+							</li>
+							<li>
+								10 minutes to accept in the morning
+							</li>
+						</ul>
+					</li>
+					<li>
+						You can accept the spot, deny the spot, or do nothing.
+					</li>
+				</ul>
 			</div>
 		</div>
 	</div>

@@ -27,19 +27,19 @@
   				<div class="form-body">
             <div class="form-group">
               <div class="row">
-  						  <h4 class="text-center block">Release your parking spot for the specified date range: </h4>
+				  <h4 class="text-center block">Release your parking spot for the specified date range: </h4>
               </div>
-  						<div class="col-md-12">
-  							<div class="input-group input-large date-picker col-xs-offset-2 col-md-offset-1 input-daterange" data-date="10/11/2012" data-date-format="mm/dd/yyyy">
-  								<input type="text" class="form-control" name="from">
-  								<span class="input-group-addon">
-  								to </span>
-  								<input type="text" class="form-control" name="to">
-  							</div>
-  							<!-- /input-group -->
-  							<span class="help-block col-xs-offset-2 col-md-offset-1">
-  							Select date range </span>
-  						</div>
+						<div class="col-md-12">
+							<div class="input-group input-large date-picker col-xs-offset-2 col-md-offset-1 input-daterange" data-date="10/11/2012" data-date-format="mm/dd/yyyy">
+								<input type="text" class="form-control" name="from">
+								<span class="input-group-addon">
+								to </span>
+								<input type="text" class="form-control" name="to">
+							</div>
+							<!-- /input-group -->
+							<span class="help-block col-xs-offset-2 col-md-offset-1">
+							Select date range </span>
+						</div>
   					</div>
   				</div>
         </form>
@@ -70,60 +70,60 @@
 					<thead>
 					<tr>
 						<th>
-							 Date
+							Date
 						</th>
 						<th>
-							 Spot Claimer
+							Spot Claimer
 						</th>
 					</tr>
 					</thead>
 					<tbody>
 					<tr>
 						<td>
-							 5/12/15
+							5/12/15
 						</td>
 						<td>
-							 Bruce Wayne
+							Bruce Wayne
 						</td>
-            <td>
+          				<td>
 							<a href="javascript:;" class="btn default btn-xs red-intense disabled">
 							<i class="fa fa-edit"></i> Reclaim </a>
 						</td>
 					</tr>
 					<tr>
 						<td>
-              6/11/15
+                			6/11/15
 						</td>
 						<td>
-							 Mark Wahlberg
+							Mark Wahlberg
 						</td>
-            <td>
+            			<td>
 							<a href="javascript:;" class="btn default btn-xs red-intense disabled">
 							<i class="fa fa-edit"></i> Reclaim </a>
 						</td>
 					</tr>
 					<tr>
 						<td>
-							 6/13/15
+							6/13/15
 						</td>
 						<td>
 							<span class="label label-sm bg-blue">
 							Not Yet Claimed </span>
 						</td>
-            <td>
+            			<td>
 							<a href="javascript:;" class="btn default btn-xs red-intense">
 							<i class="fa fa-edit"></i> Reclaim </a>
 						</td>
 					</tr>
 					<tr>
 						<td>
-              6/23/15
+            				6/23/15
 						</td>
-            <td>
-              <span class="label label-sm bg-blue">
+            			<td>
+              				<span class="label label-sm bg-blue">
 							Not Yet Claimed </span>
 						</td>
-            <td>
+            			<td>
 							<a href="javascript:;" class="btn default btn-xs red-intense">
 							<i class="fa fa-edit"></i> Reclaim </a>
 						</td>
@@ -194,7 +194,7 @@
 
 
 
-</div> <!-- END ROW -->
+</div><!-- END ROW -->
 <!-- END NON-PARKING SPOT OWNER PORTLETS -->
 
 @stop

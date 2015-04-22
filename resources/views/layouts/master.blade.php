@@ -36,11 +36,6 @@
 	<link rel="stylesheet" type="text/css" href="../../assets/global/plugins/select2/select2.css"/>
 	<link rel="stylesheet" type="text/css" href="../../assets/global/plugins/datatables/plugins/bootstrap/dataTables.bootstrap.css"/>
 	<!-- END THEME STYLES -->
-
-	{{-- BEGIN CUSTOM STYLES --}}
-	<link rel="stylesheet" type="text/css" href="../../assets/custom/styles.css">
-	{{-- END CUSTOM STYLES --}}
-
 	<link rel="shortcut icon" href="favicon.ico"/>
 </head>
 <!-- END HEAD -->
@@ -132,14 +127,6 @@
 		<!-- BEGIN CONTENT -->
 		<div class="page-content-wrapper">
 			<div class="page-content">
-				<!-- BEGIN PAGE HEADER-->
-				<h3 class="page-title">
-
-					@yield('title')
-
-				</h3>
-				<!-- END PAGE HEADER-->
-
 				{{-- BEGIN MAIN CONTENT --}}
 				<div class="row">
 					<div class="col-md-12 col-sm-12">
@@ -206,11 +193,6 @@
 	<script src="../../assets/admin/pages/scripts/table-editable.js"  type="text/javascript"></script>
 	<script src="../../assets/admin/pages/scripts/components-pickers.js"></script>
 	<!-- END PAGE LEVEL SCRIPTS -->
-
-	{{-- BEGIN CUSTOM SCRIPTS --}}
-	<script src="../../assets/custom/scripts.js" type="text/javascript"></script>
-	{{-- END CUSTOM SCRIPTS --}}
-
 	<script>
 	jQuery(document).ready(function() {
 	   Metronic.init(); // init metronic core componets
@@ -234,7 +216,6 @@
 	  ga('create', 'UA-37564768-1', 'keenthemes.com');
 	  ga('send', 'pageview');
 	</script>
-
 </body>
 <!-- END BODY -->
 </html>
