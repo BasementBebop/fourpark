@@ -33,6 +33,11 @@ class WelcomeController extends Controller {
 		return view('layouts.master');
 	}
 
+	public function dashboard()
+	{
+		return view('dashboard');
+	}
+
 	public function showUsers()
 	{
 		return view('admin.users');
