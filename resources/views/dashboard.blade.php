@@ -7,7 +7,6 @@
 	<small class="label bg-green-meadow">CURRENTLY HAS PARKING SPOT</small>
 </h3>
 
-
 <!-- BEGIN PAGE CONTENT-->
 
 <!-- PARKING SPOT OWNER PORTLETS -->
