@@ -1,5 +1,6 @@
 <?php namespace App\Http\Controllers;
 
+use App\Employee;
 use App\Http\Requests;
 use App\Http\Controllers\Controller;
 
@@ -7,13 +8,10 @@ use Illuminate\Http\Request;
 
 class AdminsController extends Controller {
 
-	/**
-	 * Display a listing of the resource.
-	 *
-	 * @return Response
-	 */
-	public function showUsers()
+	// Show all employees for admin only.
+	public function showEmployees()
 	{
-		return view('admin.users');
+		$employees = Employee::all();
+		return view('admin.employees', compact('employees'));
 	}
 }

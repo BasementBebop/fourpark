@@ -10,30 +10,56 @@ class Employee extends Model implements AuthenticatableContract, CanResetPasswor
 
 	use Authenticatable, CanResetPassword;
 
-	/**
-	 * The database table used by the model.
-	 *
-	 * @var string
-	 */
 	protected $table = 'employees';
 
-	/**
-	 * The attributes that are mass assignable.
-	 *
-	 * @var array
-	 */
-	protected $fillable = ['first_name', 'last_name', 'email', 'password'];
+	protected $fillable = ['first_name', 'last_name', 'wants_spot', 'has_spot', 'phone_number', 'email', 'alert_setting', 'password'];
 
-	/**
-	 * The attributes excluded from the model's JSON form.
-	 *
-	 * @var array
-	 */
 	protected $hidden = ['password', 'remember_token'];
 
+
+	// Sets up the relationship between Employee and Spot.
 	public function spot()
     {
         return $this->hasOne('App\Spot');
     }
 
+    // Toggles want_spot attribute of employee => 1: wants, 0: doesn't want
+    public function toggleWantsSpot()
+    {
+    	if ($this->wants_spot == 1) {
+	    	return $this->wants_spot = 0;
+    	} elseif ($this->wants_spot == 0) {
+    		return $this->wants_spot = 1;
+    	}
+    }
+
+    // Toggles has_spot attribute of employee => 1: has, 0: doesn't have
+    public function toggleHasSpot()
+    {
+    	if ($this->has_spot == 1) {
+	    	return $this->has_spot = 0;
+    	} elseif ($this->has_spot == 0) {
+    		return $this->has_spot = 1;
+    	}
+    }
+
+    // Toggles admin attribute of employee => 1: is admin, 0: not admin
+    public function toggleAdmin()
+    {
+    	if ($this->admin == 1) {
+	    	return $this->admin = 0;
+    	} elseif ($this->admin == 0) {
+    		return $this->admin = 1;
+    	}
+    }
+
+    // Toggles active attribute of employee => 1: is active, 0: not active
+    public function toggleActive()
+    {
+    	if ($this->active == 1) {
+	    	return $this->active = 0;
+    	} elseif ($this->active == 0) {
+    		return $this->active = 1;
+    	}
+    }
 }

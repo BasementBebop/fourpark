@@ -65,7 +65,10 @@ class EmployeeTableSeeder extends Seeder {
 			'email' => 'fake1@adpearance.com',
 			'active' => '1',
 			'password' => '',
+			'phone_number' => '503-548-1320',
 			'has_spot' => '1',
+			'wants_spot' => '0',
+			'admin' => '0',
 			'alert_setting' => 'email'
 			]);
 		Employee::create([
@@ -74,7 +77,10 @@ class EmployeeTableSeeder extends Seeder {
 			'email' => 'fake2@adpearance.com',
 			'active' => '1',
 			'password' => '',
+			'phone_number' => '503-548-1320',
 			'has_spot' => '1',
+			'wants_spot' => '0',
+			'admin' => '0',
 			'alert_setting' => 'sms'
 			]);
 		Employee::create([
@@ -83,7 +89,10 @@ class EmployeeTableSeeder extends Seeder {
 			'email' => 'fake3@adpearance.com',
 			'active' => '1',
 			'password' => '',
+			'phone_number' => '503-548-1320',
 			'has_spot' => '1',
+			'wants_spot' => '0',
+			'admin' => '0',
 			'alert_setting' => 'both'
 			]);
 		Employee::create([
@@ -92,7 +101,10 @@ class EmployeeTableSeeder extends Seeder {
 			'email' => 'fake4@adpearance.com',
 			'active' => '1',
 			'password' => '',
+			'phone_number' => '503-548-1320',
 			'has_spot' => '1',
+			'wants_spot' => '0',
+			'admin' => '0',
 			'alert_setting' => 'email'
 			]);
 		Employee::create([
@@ -101,7 +113,10 @@ class EmployeeTableSeeder extends Seeder {
 			'email' => 'fake5@adpearance.com',
 			'active' => '1',
 			'password' => '',
+			'phone_number' => '503-548-1320',
 			'has_spot' => '1',
+			'wants_spot' => '0',
+			'admin' => '0',
 			'alert_setting' => 'none'
 			]);
 		Employee::create([
@@ -110,7 +125,10 @@ class EmployeeTableSeeder extends Seeder {
 			'email' => 'fake6@adpearance.com',
 			'active' => '1',
 			'password' => '',
+			'phone_number' => '503-548-1320',
 			'has_spot' => '1',
+			'wants_spot' => '0',
+			'admin' => '1',
 			'alert_setting' => 'none'
 			]);
 		Employee::create([
@@ -119,7 +137,10 @@ class EmployeeTableSeeder extends Seeder {
 			'email' => 'fake7@adpearance.com',
 			'active' => '1',
 			'password' => '',
+			'phone_number' => '503-548-1320',
 			'has_spot' => '1',
+			'wants_spot' => '0',
+			'admin' => '0',
 			'alert_setting' => 'sms'
 			]);
 		Employee::create([
@@ -128,7 +149,10 @@ class EmployeeTableSeeder extends Seeder {
 			'email' => 'fake8@adpearance.com',
 			'active' => '1',
 			'password' => '',
+			'phone_number' => '503-548-1320',
 			'has_spot' => '1',
+			'wants_spot' => '0',
+			'admin' => '1',
 			'alert_setting' => 'email'
 			]);
 		Employee::create([
@@ -137,7 +161,10 @@ class EmployeeTableSeeder extends Seeder {
 			'email' => 'fake9@adpearance.com',
 			'active' => '1',
 			'password' => '',
+			'phone_number' => '503-548-1320',
 			'has_spot' => '1',
+			'wants_spot' => '0',
+			'admin' => '0',
 			'alert_setting' => 'both'
 			]);
 		Employee::create([
@@ -146,7 +173,10 @@ class EmployeeTableSeeder extends Seeder {
 			'email' => 'fake10@adpearance.com',
 			'active' => '1',
 			'password' => '',
+			'phone_number' => '503-548-1320',
 			'has_spot' => '1',
+			'wants_spot' => '0',
+			'admin' => '0',
 			'alert_setting' => 'email'
 			]);
 		Employee::create([
@@ -155,7 +185,10 @@ class EmployeeTableSeeder extends Seeder {
 			'email' => 'fake11@adpearance.com',
 			'active' => '1',
 			'password' => '',
+			'phone_number' => '503-548-1320',
 			'has_spot' => '1',
+			'wants_spot' => '0',
+			'admin' => '0',
 			'alert_setting' => 'both'
 			]);
 		Employee::create([
@@ -164,7 +197,10 @@ class EmployeeTableSeeder extends Seeder {
 			'email' => 'fake12@adpearance.com',
 			'active' => '1',
 			'password' => '',
+			'phone_number' => '503-548-1320',
 			'has_spot' => '1',
+			'wants_spot' => '0',
+			'admin' => '0',
 			'alert_setting' => 'none'
 			]);
 		Employee::create([
@@ -173,7 +209,10 @@ class EmployeeTableSeeder extends Seeder {
 			'email' => 'fake13@adpearance.com',
 			'active' => '1',
 			'password' => '',
+			'phone_number' => '503-548-1320',
 			'has_spot' => '1',
+			'wants_spot' => '0',
+			'admin' => '0',
 			'alert_setting' => 'email'
 			]);
 		Employee::create([
@@ -182,7 +221,10 @@ class EmployeeTableSeeder extends Seeder {
 			'email' => 'fake14@adpearance.com',
 			'active' => '1',
 			'password' => '',
+			'phone_number' => '503-548-1320',
 			'has_spot' => '1',
+			'wants_spot' => '0',
+			'admin' => '1',
 			'alert_setting' => 'sms'
 			]);
 		Employee::create([
@@ -191,7 +233,10 @@ class EmployeeTableSeeder extends Seeder {
 			'email' => 'fake15@adpearance.com',
 			'active' => '1',
 			'password' => '',
+			'phone_number' => '503-548-1320',
 			'has_spot' => '1',
+			'wants_spot' => '0',
+			'admin' => '0',
 			'alert_setting' => 'both'
 			]);
 		Employee::create([
@@ -200,7 +245,10 @@ class EmployeeTableSeeder extends Seeder {
 			'email' => 'fake16@adpearance.com',
 			'active' => '1',
 			'password' => '',
+			'phone_number' => '503-548-1320',
 			'has_spot' => '1',
+			'wants_spot' => '0',
+			'admin' => '1',
 			'alert_setting' => 'none'
 			]);
 		Employee::create([
@@ -209,7 +257,10 @@ class EmployeeTableSeeder extends Seeder {
 			'email' => 'fake17@adpearance.com',
 			'active' => '1',
 			'password' => '',
+			'phone_number' => '503-548-1320',
 			'has_spot' => '1',
+			'wants_spot' => '0',
+			'admin' => '0',
 			'alert_setting' => 'sms'
 			]);
 		Employee::create([
@@ -218,7 +269,10 @@ class EmployeeTableSeeder extends Seeder {
 			'email' => 'fake18@adpearance.com',
 			'active' => '1',
 			'password' => '',
+			'phone_number' => '503-548-1320',
 			'has_spot' => '1',
+			'wants_spot' => '0',
+			'admin' => '0',
 			'alert_setting' => 'email'
 			]);
 		Employee::create([
@@ -227,7 +281,10 @@ class EmployeeTableSeeder extends Seeder {
 			'email' => 'fake19@adpearance.com',
 			'active' => '1',
 			'password' => '',
+			'phone_number' => '503-548-1320',
 			'has_spot' => '1',
+			'wants_spot' => '0',
+			'admin' => '0',
 			'alert_setting' => 'email'
 			]);
 		Employee::create([
@@ -236,7 +293,10 @@ class EmployeeTableSeeder extends Seeder {
 			'email' => 'fake20@adpearance.com',
 			'active' => '1',
 			'password' => '',
+			'phone_number' => '503-548-1320',
 			'has_spot' => '1',
+			'wants_spot' => '0',
+			'admin' => '0',
 			'alert_setting' => 'sms'
 			]);
 		Employee::create([
@@ -245,7 +305,10 @@ class EmployeeTableSeeder extends Seeder {
 			'email' => 'fake21@adpearance.com',
 			'active' => '1',
 			'password' => '',
+			'phone_number' => '503-548-1320',
 			'has_spot' => '1',
+			'wants_spot' => '0',
+			'admin' => '0',
 			'alert_setting' => 'both'
 			]);
 		Employee::create([
@@ -254,7 +317,10 @@ class EmployeeTableSeeder extends Seeder {
 			'email' => 'fake22@adpearance.com',
 			'active' => '1',
 			'password' => '',
+			'phone_number' => '503-548-1320',
 			'has_spot' => '1',
+			'wants_spot' => '0',
+			'admin' => '0',
 			'alert_setting' => 'none'
 			]);
 

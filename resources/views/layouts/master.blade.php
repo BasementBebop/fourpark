@@ -109,9 +109,9 @@
 						</a>
 					</li>
 					<li class="start">
-						<a href="users">
+						<a href="all_employees">
 						<i class="icon-users"></i>
-						<span class="title">Users (Admin only)</span>
+						<span class="title">Employees (Admin only)</span>
 						</a>
 					</li>
 					<li class="start">
