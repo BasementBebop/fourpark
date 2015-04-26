@@ -24,6 +24,72 @@ class Employee extends Model implements AuthenticatableContract, CanResetPasswor
         return $this->hasOne('App\Spot');
     }
 
+    // Method for when an employee accepts a spot
+    public function acceptSpot()
+    {
+        if ($this->want_spot == 1) {
+            $this->want_spot = 0;
+            $this->has_spot = 1;
+            DB::table('open_spots')
+                // ->where(...) need to figure out
+                ->update(['assigned_employee_id' => $this->id]);
+        }
+    }
+
+    // Method for when an employee gives up a spot
+    public function giveUpSpot()
+    {
+        if ($this->spot->status == 'taken') {
+            $this->spot->status = 'available';
+            DB::table('spots')
+                ->where('id', $this->spot->id)
+                ->update(['status' => 'available']);
+            DB::table('open_spots')->insert([
+                'spot_id' => $this->spot->id,
+                'employee_id' => $this->id,
+                // open_date and end_date will be added to open_spots table once that functionality is built out  
+                'open_date' => null,
+                'end_date' => null    
+            ]);
+        }
+    }
+    
+    // Method for when an employee wants to reclaim a spot (spot owner)
+    public function reclaimSpot()
+    {
+        # code...
+    }
+
+    // Method for when an employee wants to release a spot (spot recipient)
+    public function releaseSpot()
+    {
+        # code...
+    }
+
+    // Sends notification to employee when spot becomes available
+    public function sendNotification()
+    {
+        while ($this->spot->status == 'available') {
+            // send email notification logic
+        }
+    }
+
+    // Toggles spot status between available and taken and updates database
+    public function toggleSpotStatus()
+    {
+        if ($this->spot->status == 'available') {
+            $this->spot->status = 'taken';
+            DB::table('spots')
+                ->where('id', $this->spot->id)
+                ->update(['status' => 'taken']);
+        } elseif ($this->spot->status == 'taken') {
+            $this->spot->status = 'available';
+            DB::table('spots')
+                ->where('id', $this->spot->id)
+                ->update(['status' => 'available']);
+        }
+    }
+
     // Toggles want_spot attribute of employee => 1: wants, 0: doesn't want
     public function toggleWantsSpot()
     {

@@ -14,6 +14,7 @@ class CreateOpenSpotsTable extends Migration {
 	{
 		Schema::create('open_spots', function(Blueprint $table)
 		{
+			$table->increments('id');
 			$table->integer('spot_id')->unsigned();
 			$table->foreign('spot_id')->references('id')->on('spots')->onDelete('cascade');
 			$table->integer('employee_id')->unsigned();

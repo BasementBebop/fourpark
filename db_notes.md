@@ -38,10 +38,10 @@
 - In `open_spots`:
 	- `employee_id`, `spot_id`, `open_date`, and `end_date` are added
 	
-#### System looks for employees who want spot and sends email
+#### sendNotification()
 - `time_email_sent` is updated (after 30 min, new email is sent until spot accepted)
 
-#### Employee accepts spot
+#### acceptSpot()
 - In `employees`:
 	- `wants_spot` for that employee is set to **0**
 	- `has_spot` for that employee is set to **1**
