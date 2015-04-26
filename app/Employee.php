@@ -1,5 +1,6 @@
 <?php namespace App;
 
+use DB;
 use Illuminate\Auth\Authenticatable;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Auth\Passwords\CanResetPassword;
@@ -17,7 +18,7 @@ class Employee extends Model implements AuthenticatableContract, CanResetPasswor
 	protected $hidden = ['password', 'remember_token'];
 
 
-	// Sets up the relationship between Employee and Spot.
+	// Sets up the relationship between Employee and Spot
 	public function spot()
     {
         return $this->hasOne('App\Spot');
@@ -27,19 +28,31 @@ class Employee extends Model implements AuthenticatableContract, CanResetPasswor
     public function toggleWantsSpot()
     {
     	if ($this->wants_spot == 1) {
-	    	return $this->wants_spot = 0;
-    	} elseif ($this->wants_spot == 0) {
-    		return $this->wants_spot = 1;
-    	}
+	    	$this->wants_spot = 0;
+            DB::table('employees')
+                ->where('id', $this->id)
+                ->update(['wants_spot' => 0]);
+        } elseif ($this->wants_spot == 0) {
+            $this->wants_spot = 1;
+            DB::table('employees')
+                ->where('id', $this->id)
+                ->update(['wants_spot' => 1]);
+        }
     }
 
     // Toggles has_spot attribute of employee => 1: has, 0: doesn't have
     public function toggleHasSpot()
     {
     	if ($this->has_spot == 1) {
-	    	return $this->has_spot = 0;
+	    	$this->has_spot = 0;
+            DB::table('employees')
+                ->where('id', $this->id)
+                ->update(['has_spot' => 0]);
     	} elseif ($this->has_spot == 0) {
-    		return $this->has_spot = 1;
+    		$this->has_spot = 1;
+            DB::table('employees')
+                ->where('id', $this->id)
+                ->update(['has_spot' => 1]);
     	}
     }
 
@@ -47,9 +60,15 @@ class Employee extends Model implements AuthenticatableContract, CanResetPasswor
     public function toggleAdmin()
     {
     	if ($this->admin == 1) {
-	    	return $this->admin = 0;
+	    	$this->admin = 0;
+            DB::table('employees')
+                ->where('id', $this->id)
+                ->update(['admin' => 0]);
     	} elseif ($this->admin == 0) {
-    		return $this->admin = 1;
+    		$this->admin = 1;
+            DB::table('employees')
+                ->where('id', $this->id)
+                ->update(['admin' => 1]);
     	}
     }
 
@@ -57,9 +76,41 @@ class Employee extends Model implements AuthenticatableContract, CanResetPasswor
     public function toggleActive()
     {
     	if ($this->active == 1) {
-	    	return $this->active = 0;
+	    	$this->active = 0;
+            DB::table('employees')
+                ->where('id', $this->id)
+                ->update(['active' => 0]);
     	} elseif ($this->active == 0) {
-    		return $this->active = 1;
+    		$this->active = 1;
+            DB::table('employees')
+                ->where('id', $this->id)
+                ->update(['active' => 1]);
     	}
+    }
+
+    // Changes alert setting for employees
+    public function changeAlert($alert)
+    {
+        if ($alert == 'email') {
+            $this->alert_setting = 'email';
+            DB::table('employees')
+                ->where('id', $this->id)
+                ->update(['alert_setting' => 'email']);
+        } elseif ($alert == 'sms') {
+            $this->alert_setting = 'sms';
+            DB::table('employees')
+                ->where('id', $this->id)
+                ->update(['alert_setting' => 'sms']);
+        } elseif ($alert == 'both') {
+            $this->alert_setting = 'both';
+            DB::table('employees')
+                ->where('id', $this->id)
+                ->update(['alert_setting' => 'both']);
+        } elseif ($alert == 'none') {
+            $this->alert_setting = 'none';
+            DB::table('employees')
+                ->where('id', $this->id)
+                ->update(['alert_setting' => 'none']);
+        }
     }
 }

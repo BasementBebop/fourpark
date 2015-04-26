@@ -31,9 +31,8 @@
 - `holiday`					DATE
 
 ## Workflow
-#### Employee gives up spot
-- In `employees`:
-	- `has_spot` for that employee is set to **0**
+
+#### giveUpSpot()
 - In `spots`:
 	- `status` for that spot is set to **available**
 - In `open_spots`:
@@ -48,18 +47,6 @@
 	- `has_spot` for that employee is set to **1**
 - In `open_spots`:
 	- `assigned_employee_id` is added
-
-
-
-
-
-
-
-
-
-
-
-
 
 
 
