@@ -24,6 +24,7 @@ class DatabaseSeeder extends Seeder {
 
 }
 
+// Seeds holidays table
 class HolidayTableSeeder extends Seeder {
 
 	public function run()
@@ -39,6 +40,7 @@ class HolidayTableSeeder extends Seeder {
 	}
 }
 
+// Seeds spots table
 class SpotTableSeeder extends Seeder {
 
 	public function run()
@@ -46,13 +48,49 @@ class SpotTableSeeder extends Seeder {
 		DB::table('spots')->delete();
 
 		Spot::create([
-			'employee_id' => Employee::first()->id,
+			'employee_id' => Employee::all()[1]->id,
+			'lot_name' => 'behind',
 			'status' => 'available'
+		]);
+		Spot::create([
+			'employee_id' => Employee::all()[10]->id,
+			'lot_name' => 'creepy',
+			'status' => 'taken'
+		]);
+		Spot::create([
+			'employee_id' => Employee::all()[4]->id,
+			'lot_name' => 'behind',
+			'status' => 'available'
+		]);
+		Spot::create([
+			'employee_id' => Employee::all()[7]->id,
+			'lot_name' => 'creepy',
+			'status' => 'taken'
+		]);
+		Spot::create([
+			'employee_id' => Employee::all()[20]->id,
+			'lot_name' => 'behind',
+			'status' => 'taken'
+		]);
+		Spot::create([
+			'employee_id' => Employee::all()[16]->id,
+			'lot_name' => 'creepy',
+			'status' => 'available'
+		]);
+		Spot::create([
+			'employee_id' => Employee::all()[13]->id,
+			'lot_name' => 'behind',
+			'status' => 'available'
+		]);
+		Spot::create([
+			'employee_id' => Employee::all()[19]->id,
+			'lot_name' => 'creepy',
+			'status' => 'taken'
 		]);
 	}
 }
 
-
+// Seeds employees table
 class EmployeeTableSeeder extends Seeder {
 
 	public function run()
