@@ -17,7 +17,6 @@ class Employee extends Model implements AuthenticatableContract, CanResetPasswor
 
 	protected $hidden = ['password', 'remember_token'];
 
-
 	// Sets up the relationship between Employee and Spot
 	public function spot()
     {
@@ -41,9 +40,7 @@ class Employee extends Model implements AuthenticatableContract, CanResetPasswor
     {
         if ($this->spot->status == 'taken') {
             $this->spot->status = 'available';
-            DB::table('spots')
-                ->where('id', $this->spot->id)
-                ->update(['status' => 'available']);
+            $this->save();
             DB::table('open_spots')->insert([
                 'spot_id' => $this->spot->id,
                 'employee_id' => $this->id,
@@ -79,14 +76,10 @@ class Employee extends Model implements AuthenticatableContract, CanResetPasswor
     {
         if ($this->spot->status == 'available') {
             $this->spot->status = 'taken';
-            DB::table('spots')
-                ->where('id', $this->spot->id)
-                ->update(['status' => 'taken']);
+            $this->spot->save();
         } elseif ($this->spot->status == 'taken') {
             $this->spot->status = 'available';
-            DB::table('spots')
-                ->where('id', $this->spot->id)
-                ->update(['status' => 'available']);
+            $this->spot->save();
         }
     }
 
@@ -95,14 +88,10 @@ class Employee extends Model implements AuthenticatableContract, CanResetPasswor
     {
     	if ($this->wants_spot == 1) {
 	    	$this->wants_spot = 0;
-            DB::table('employees')
-                ->where('id', $this->id)
-                ->update(['wants_spot' => 0]);
+            $this->save();
         } elseif ($this->wants_spot == 0) {
             $this->wants_spot = 1;
-            DB::table('employees')
-                ->where('id', $this->id)
-                ->update(['wants_spot' => 1]);
+            $this->save();
         }
     }
 
@@ -111,14 +100,10 @@ class Employee extends Model implements AuthenticatableContract, CanResetPasswor
     {
     	if ($this->has_spot == 1) {
 	    	$this->has_spot = 0;
-            DB::table('employees')
-                ->where('id', $this->id)
-                ->update(['has_spot' => 0]);
+            $this->save();
     	} elseif ($this->has_spot == 0) {
     		$this->has_spot = 1;
-            DB::table('employees')
-                ->where('id', $this->id)
-                ->update(['has_spot' => 1]);
+            $this->save();
     	}
     }
 
@@ -127,14 +112,10 @@ class Employee extends Model implements AuthenticatableContract, CanResetPasswor
     {
     	if ($this->admin == 1) {
 	    	$this->admin = 0;
-            DB::table('employees')
-                ->where('id', $this->id)
-                ->update(['admin' => 0]);
+            $this->save();
     	} elseif ($this->admin == 0) {
     		$this->admin = 1;
-            DB::table('employees')
-                ->where('id', $this->id)
-                ->update(['admin' => 1]);
+            $this->save();
     	}
     }
 
@@ -143,14 +124,10 @@ class Employee extends Model implements AuthenticatableContract, CanResetPasswor
     {
     	if ($this->active == 1) {
 	    	$this->active = 0;
-            DB::table('employees')
-                ->where('id', $this->id)
-                ->update(['active' => 0]);
+            $this->save();
     	} elseif ($this->active == 0) {
     		$this->active = 1;
-            DB::table('employees')
-                ->where('id', $this->id)
-                ->update(['active' => 1]);
+            $this->save();
     	}
     }
 
@@ -158,25 +135,17 @@ class Employee extends Model implements AuthenticatableContract, CanResetPasswor
     public function changeAlert($alert)
     {
         if ($alert == 'email') {
-            $this->alert_setting = 'email';
-            DB::table('employees')
-                ->where('id', $this->id)
-                ->update(['alert_setting' => 'email']);
+            $this->alert_setting = $alert;
+            $this->save();
         } elseif ($alert == 'sms') {
-            $this->alert_setting = 'sms';
-            DB::table('employees')
-                ->where('id', $this->id)
-                ->update(['alert_setting' => 'sms']);
+            $this->alert_setting = $alert;
+            $this->save();
         } elseif ($alert == 'both') {
-            $this->alert_setting = 'both';
-            DB::table('employees')
-                ->where('id', $this->id)
-                ->update(['alert_setting' => 'both']);
+            $this->alert_setting = $alert;
+            $this->save();
         } elseif ($alert == 'none') {
-            $this->alert_setting = 'none';
-            DB::table('employees')
-                ->where('id', $this->id)
-                ->update(['alert_setting' => 'none']);
+            $this->alert_setting = $alert;
+            $this->save();
         }
     }
 }
