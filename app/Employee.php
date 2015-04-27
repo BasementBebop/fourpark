@@ -11,10 +11,13 @@ class Employee extends Model implements AuthenticatableContract, CanResetPasswor
 
 	use Authenticatable, CanResetPassword;
 
+    // Database table
 	protected $table = 'employees';
 
+    // These values are eligible for mass assignment
 	protected $fillable = ['first_name', 'last_name', 'wants_spot', 'has_spot', 'phone_number', 'email', 'alert_setting', 'password'];
 
+    // These values are hidden in the database
 	protected $hidden = ['password', 'remember_token'];
 
 	// Sets up the relationship between Employee and Spot
@@ -27,8 +30,7 @@ class Employee extends Model implements AuthenticatableContract, CanResetPasswor
     public function acceptSpot()
     {
         if ($this->want_spot == 1) {
-            $this->want_spot = 0;
-            $this->has_spot = 1;
+            $this->update(['want_spot' => 0, 'has_spot' => 1]);
             DB::table('open_spots')
                 // ->where(...) need to figure out
                 ->update(['assigned_employee_id' => $this->id]);
@@ -39,8 +41,7 @@ class Employee extends Model implements AuthenticatableContract, CanResetPasswor
     public function giveUpSpot()
     {
         if ($this->spot->status == 'taken') {
-            $this->spot->status = 'available';
-            $this->save();
+            $this->spot->update(['status' => 'available']);
             DB::table('open_spots')->insert([
                 'spot_id' => $this->spot->id,
                 'employee_id' => $this->id,
@@ -71,27 +72,13 @@ class Employee extends Model implements AuthenticatableContract, CanResetPasswor
         }
     }
 
-    // Toggles spot status between available and taken and updates database
-    public function toggleSpotStatus()
-    {
-        if ($this->spot->status == 'available') {
-            $this->spot->status = 'taken';
-            $this->spot->save();
-        } elseif ($this->spot->status == 'taken') {
-            $this->spot->status = 'available';
-            $this->spot->save();
-        }
-    }
-
     // Toggles want_spot attribute of employee => 1: wants, 0: doesn't want
     public function toggleWantsSpot()
     {
     	if ($this->wants_spot == 1) {
-	    	$this->wants_spot = 0;
-            $this->save();
+	    	$this->update(['wants_spot' => 0]);
         } elseif ($this->wants_spot == 0) {
-            $this->wants_spot = 1;
-            $this->save();
+            $this->update(['wants_spot' => 1]);
         }
     }
 
@@ -99,53 +86,37 @@ class Employee extends Model implements AuthenticatableContract, CanResetPasswor
     public function toggleHasSpot()
     {
     	if ($this->has_spot == 1) {
-	    	$this->has_spot = 0;
-            $this->save();
+            $this->update(['has_spot' => 0]);
     	} elseif ($this->has_spot == 0) {
-    		$this->has_spot = 1;
-            $this->save();
+            $this->update(['has_spot' => 1]);
     	}
     }
 
     // Toggles admin attribute of employee => 1: is admin, 0: not admin
+    // NOT WORKING DUE TO MASS ASSIGNMENT
     public function toggleAdmin()
     {
     	if ($this->admin == 1) {
-	    	$this->admin = 0;
-            $this->save();
+            $this->update(['admin' => 0]);
     	} elseif ($this->admin == 0) {
-    		$this->admin = 1;
-            $this->save();
+            $this->update(['admin' => 1]);
     	}
     }
 
     // Toggles active attribute of employee => 1: is active, 0: not active
+    // NOT WORKING DUE TO MASS ASSIGNMENT
     public function toggleActive()
     {
     	if ($this->active == 1) {
-	    	$this->active = 0;
-            $this->save();
+            $this->update(['active' => 0]);
     	} elseif ($this->active == 0) {
-    		$this->active = 1;
-            $this->save();
+            $this->update(['active' => 1]);
     	}
     }
 
     // Changes alert setting for employees
     public function changeAlert($alert)
     {
-        if ($alert == 'email') {
-            $this->alert_setting = $alert;
-            $this->save();
-        } elseif ($alert == 'sms') {
-            $this->alert_setting = $alert;
-            $this->save();
-        } elseif ($alert == 'both') {
-            $this->alert_setting = $alert;
-            $this->save();
-        } elseif ($alert == 'none') {
-            $this->alert_setting = $alert;
-            $this->save();
-        }
+        $this->update(['alert_setting' => $alert]);
     }
 }
