@@ -26,6 +26,8 @@ class Employee extends Model implements AuthenticatableContract, CanResetPasswor
         return $this->hasOne('App\Spot');
     }
 
+// METHODS
+
     // Method for when an employee accepts a spot
     public function acceptSpot($spot)
     {
@@ -39,16 +41,15 @@ class Employee extends Model implements AuthenticatableContract, CanResetPasswor
     }
 
     // Method for when an employee gives up a spot
-    public function giveUpSpot()
+    public function giveUpSpot($open_date, $end_date)
     {
         if ($this->spot->status == 'taken') {
             $this->spot->update(['status' => 'available']);
             DB::table('open_spots')->insert([
                 'spot_id' => $this->spot->id,
                 'employee_id' => $this->id,
-                // open_date and end_date will be added to open_spots table once that functionality is built out  
-                'open_date' => null,
-                'end_date' => null    
+                'open_date' => $open_date,
+                'end_date' => $end_date    
             ]);
         }
     }
@@ -78,6 +79,16 @@ class Employee extends Model implements AuthenticatableContract, CanResetPasswor
     {
         while ($this->spot->status == 'available') {
             // send email notification logic
+        }
+    }
+
+    // Determines if an employee is an admin
+    public function isAdmin()
+    {
+        if ($this->admin == 1) {
+            return true;
+        } else {
+            return false;
         }
     }
 
@@ -112,7 +123,9 @@ class Employee extends Model implements AuthenticatableContract, CanResetPasswor
     }
 
     // Toggles admin attribute of employee => 1: is admin, 0: not admin
-    // NOT WORKING DUE TO MASS ASSIGNMENT
+    // 
+    // NOT WORKING DUE TO MASS ASSIGNMENT - need Admin class?
+    // 
     public function toggleAdmin()
     {
     	if ($this->admin == 1) {
@@ -123,7 +136,9 @@ class Employee extends Model implements AuthenticatableContract, CanResetPasswor
     }
 
     // Toggles active attribute of employee => 1: is active, 0: not active
-    // NOT WORKING DUE TO MASS ASSIGNMENT
+    // 
+    // NOT WORKING DUE TO MASS ASSIGNMENT - need Admin class?
+    // 
     public function toggleActive()
     {
     	if ($this->active == 1) {
@@ -139,8 +154,8 @@ class Employee extends Model implements AuthenticatableContract, CanResetPasswor
         $this->update(['alert_setting' => $alert]);
     }
 
-    // SCOPE QUERIES
-    // 
+// SCOPE QUERIES
+
     // Returns employees who are admins
     public function scopeAdmin($query)
     {

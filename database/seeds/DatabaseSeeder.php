@@ -8,11 +8,7 @@ use App\Spot;
 
 class DatabaseSeeder extends Seeder {
 
-	/**
-	 * Run the database seeds.
-	 *
-	 * @return void
-	 */
+	// Runs the database seeds
 	public function run()
 	{
 		Model::unguard();

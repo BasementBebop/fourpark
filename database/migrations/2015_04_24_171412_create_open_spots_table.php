@@ -5,11 +5,6 @@ use Illuminate\Database\Migrations\Migration;
 
 class CreateOpenSpotsTable extends Migration {
 
-	/**
-	 * Run the migrations.
-	 *
-	 * @return void
-	 */
 	public function up()
 	{
 		Schema::create('open_spots', function(Blueprint $table)
@@ -27,11 +22,6 @@ class CreateOpenSpotsTable extends Migration {
 		});
 	}
 
-	/**
-	 * Reverse the migrations.
-	 *
-	 * @return void
-	 */
 	public function down()
 	{
 		Schema::drop('open_spots');
