@@ -16,15 +16,4 @@ class Spot extends Model {
     {
         return $this->belongsTo('App\Employee');
     }
-
-    // Toggles spot status between available and taken and updates database
-    public function toggleSpotStatus()
-    {
-        if ($this->status == 'available') {
-            $this->update(['status' => 'taken']);
-        } elseif ($this->status == 'taken') {
-            $this->update(['status' => 'available']);
-        }
-    }
-
 }

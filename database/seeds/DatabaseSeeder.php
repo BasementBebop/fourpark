@@ -104,8 +104,8 @@ class EmployeeTableSeeder extends Seeder {
 			'active' => '1',
 			'password' => '',
 			'phone_number' => '503-548-1320',
-			'has_spot' => '1',
-			'wants_spot' => '0',
+			'has_spot' => '0',
+			'wants_spot' => '1',
 			'admin' => '0',
 			'alert_setting' => 'email'
 			]);
@@ -128,8 +128,8 @@ class EmployeeTableSeeder extends Seeder {
 			'active' => '1',
 			'password' => '',
 			'phone_number' => '503-548-1320',
-			'has_spot' => '1',
-			'wants_spot' => '0',
+			'has_spot' => '0',
+			'wants_spot' => '1',
 			'admin' => '0',
 			'alert_setting' => 'both'
 			]);
@@ -140,8 +140,8 @@ class EmployeeTableSeeder extends Seeder {
 			'active' => '1',
 			'password' => '',
 			'phone_number' => '503-548-1320',
-			'has_spot' => '1',
-			'wants_spot' => '0',
+			'has_spot' => '0',
+			'wants_spot' => '1',
 			'admin' => '0',
 			'alert_setting' => 'email'
 			]);

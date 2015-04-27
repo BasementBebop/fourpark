@@ -27,12 +27,13 @@ class Employee extends Model implements AuthenticatableContract, CanResetPasswor
     }
 
     // Method for when an employee accepts a spot
-    public function acceptSpot()
+    public function acceptSpot($spot)
     {
-        if ($this->want_spot == 1) {
-            $this->update(['want_spot' => 0, 'has_spot' => 1]);
+        if ($spot->status == 'available' && $this->wants_spot == 1 && $this->has_spot == 0) {
+            $this->update(['wants_spot' => 0, 'has_spot' => 1]);
+            $spot->update(['status' => 'taken']);
             DB::table('open_spots')
-                // ->where(...) need to figure out
+                ->where('spot_id', $spot->id)
                 ->update(['assigned_employee_id' => $this->id]);
         }
     }
@@ -55,13 +56,21 @@ class Employee extends Model implements AuthenticatableContract, CanResetPasswor
     // Method for when an employee wants to reclaim a spot (spot owner)
     public function reclaimSpot()
     {
-        # code...
+        if ($this->spot->status == 'available') {
+            $this->spot->update(['status' => 'taken']);
+        }
     }
 
     // Method for when an employee wants to release a spot (spot recipient)
-    public function releaseSpot()
+    public function releaseSpot($spot)
     {
-        # code...
+        if ($spot->status == 'taken' && $this->has_spot == 1) {
+            $spot->update(['status' => 'available']);
+            $this->update(['has_spot' => 0]);
+            DB::table('open_spots')
+                ->where('spot_id', $spot->id)
+                ->update(['assigned_employee_id' => null]);
+        }
     }
 
     // Sends notification to employee when spot becomes available
@@ -69,6 +78,16 @@ class Employee extends Model implements AuthenticatableContract, CanResetPasswor
     {
         while ($this->spot->status == 'available') {
             // send email notification logic
+        }
+    }
+
+    // Toggles spot status between available and taken and updates database
+    public function toggleSpotStatus()
+    {
+        if ($this->spot->status == 'available') {
+            $this->spot->update(['status' => 'taken']);
+        } elseif ($this->spot->status == 'taken') {
+            $this->spot->update(['status' => 'available']);
         }
     }
 
