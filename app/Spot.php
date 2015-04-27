@@ -8,7 +8,7 @@ class Spot extends Model {
     // Database table
     protected $table = 'spots';
 
-    // These values are eligible for mass assignment
+    // These attributes are eligible for mass assignment
 	protected $fillable = ['status'];
 
 	// Sets up the relationship between Spot and Employee

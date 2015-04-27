@@ -14,10 +14,10 @@ class Employee extends Model implements AuthenticatableContract, CanResetPasswor
     // Database table
 	protected $table = 'employees';
 
-    // These values are eligible for mass assignment
+    // These attributes are eligible for mass assignment
 	protected $fillable = ['first_name', 'last_name', 'wants_spot', 'has_spot', 'phone_number', 'email', 'alert_setting', 'password'];
 
-    // These values are hidden in the database
+    // These attributes are hidden in the database
 	protected $hidden = ['password', 'remember_token'];
 
 	// Sets up the relationship between Employee and Spot
@@ -118,5 +118,55 @@ class Employee extends Model implements AuthenticatableContract, CanResetPasswor
     public function changeAlert($alert)
     {
         $this->update(['alert_setting' => $alert]);
+    }
+
+    // SCOPE QUERIES
+    // 
+    // Returns employees who are admins
+    public function scopeAdmin($query)
+    {
+        $query->where('admin', '=', 1);
+    }
+
+    // Returns employees who are NOT admins
+    public function scopeNotAdmin($query)
+    {
+        $query->where('admin', '!=', 1);
+    }
+
+    // Returns employees who are active
+    public function scopeActive($query)
+    {
+        $query->where('active', '=', 1);
+    }
+
+    // Returns employees who are NOT active
+    public function scopeNotActive($query)
+    {
+        $query->where('active', '!=', 1);
+    }
+
+    // Returns employees who want a spot
+    public function scopeWantsSpot($query)
+    {
+        $query->where('wants_spot', '=', 1);
+    }
+
+    // Returns employees who DO NOT want a spot
+    public function scopeDoesntWantSpot($query)
+    {
+        $query->where('wants_spot', '!=', 1);
+    }
+
+    // Returns employees who have a spot
+    public function scopeHasSpot($query)
+    {
+        $query->where('has_spot', '=', 1);
+    }
+
+    // Returns employees who DO NOT have a spot
+    public function scopeNoSpot($query)
+    {
+        $query->where('has_spot', '!=', 1);
     }
 }
