@@ -6,7 +6,7 @@ Route::get('/', 'EmployeesController@index');
 Route::get('dashboard', 'EmployeesController@index');
 Route::get('settings', 'EmployeesController@edit');
 
-Route::get('all_employees', 'AdminsController@showEmployees');
+Route::get('all_employees', 'EmployeesController@showEmployees');
 
 Route::resource('employees', 'EmployeesController');
 

@@ -8,10 +8,15 @@ use Illuminate\Http\Request;
 
 class EmployeesController extends Controller {
 
-	public function index()
+	public function showEmployees()
 	{
 		$employees = Employee::all();
-		return view('dashboard', compact('employees'));
+		return view('employees.all_employees', compact('employees'));
+	}
+
+	public function index()
+	{
+		return view('dashboard');
 	}
 
 	public function create()

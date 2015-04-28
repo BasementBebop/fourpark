@@ -20,4 +20,15 @@ class EmployeeTest extends TestCase {
 		]);
 		$this->assertEquals('Joy-Webb', $employee->last_name);
 	}
+
+	public function testChangeAlert()
+	{
+		$employee = new Employee([
+			'first_name' => 'Chris',
+			'last_name' => 'Joy-Webb',
+			'alert_setting' => 'sms'
+		]);
+		$employee->changeAlert('email');
+		$this->assertEquals('email', $employee->alert_setting);
+	}
 }
