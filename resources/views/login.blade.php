@@ -48,6 +48,15 @@
 	<!-- END LOGO -->
 	<!-- BEGIN LOGIN -->
 	<div class="content">
+		@if (count($errors) > 0)
+			<div class="alert alert-danger">
+				<ul>
+					@foreach ($errors->all() as $error)
+						<li>{{ $error }}</li>
+					@endforeach
+				</ul>
+			</div>
+		@endif
 		<!-- BEGIN LOGIN FORM -->
 		<form class="login-form" action="{{ url('/auth/login') }}" method="POST">
 			<input type="hidden" name="_token" value="{{ csrf_token() }}">
@@ -69,7 +78,7 @@
 			<div class="form-actions">
 				<button type="submit" class="btn btn-success uppercase">Login</button>
 				<label class="rememberme check">
-				<input type="checkbox" name="remember" value="1"/>Remember </label>
+				<input type="checkbox" name="remember"/>Remember </label>
 				<a href="javascript:;" id="forget-password" class="forget-password">Forgot Password?</a>
 			</div>
 			<div class="create-account">
@@ -80,13 +89,14 @@
 		</form>
 		<!-- END LOGIN FORM -->
 		<!-- BEGIN FORGOT PASSWORD FORM -->
-		<form class="forget-form" action="/" method="post">
+		<form class="forget-form" action="{{ url('/password/email') }}" method="post">
+			<input type="hidden" name="_token" value="{{ csrf_token() }}">
 			<h3>Forget Password ?</h3>
 			<p>
 				 Enter your e-mail address below to reset your password.
 			</p>
 			<div class="form-group">
-				<input class="form-control placeholder-no-fix" type="text" autocomplete="off" placeholder="Email" name="email"/>
+				<input class="form-control placeholder-no-fix" type="text" autocomplete="off" placeholder="Email" name="email" value="{{ old('email') }}" />
 			</div>
 			<div class="form-actions">
 				<button type="button" id="back-btn" class="btn btn-default">Back</button>
@@ -95,23 +105,28 @@
 		</form>
 		<!-- END FORGOT PASSWORD FORM -->
 		<!-- BEGIN REGISTRATION FORM -->
-		<form class="register-form" action="/" method="post">
+		<form class="register-form" action="{{ url('/auth/register') }}" method="POST">
+			<input type="hidden" name="_token" value="{{ csrf_token() }}">
 			<h3>Sign Up</h3>
 			<p class="hint">
 				 Enter your personal details below:
 			</p>
 			<div class="form-group">
 				<label class="control-label visible-ie8 visible-ie9">First Name</label>
-				<input class="form-control placeholder-no-fix" type="text" placeholder="First Name" name="first_name"/>
+				<input class="form-control placeholder-no-fix" type="text" placeholder="First Name" name="first_name" value="{{ old('first_name') }}"/>
 			</div>
 			<div class="form-group">
 				<label class="control-label visible-ie8 visible-ie9">Last Name</label>
-				<input class="form-control placeholder-no-fix" type="text" placeholder="Last Name" name="last_name"/>
+				<input class="form-control placeholder-no-fix" type="text" placeholder="Last Name" name="last_name" value="{{ old('last_name') }}"/>
+			</div>
+			<div class="form-group">
+				<label class="control-label visible-ie8 visible-ie9">Phone Number</label>
+				<input class="form-control placeholder-no-fix" type="text" placeholder="Phone Number" name="phone_number" value="{{ old('phone_number') }}"/>
 			</div>
 			<div class="form-group">
 				<!--ie8, ie9 does not support html5 placeholder, so we just show field title for that-->
 				<label class="control-label visible-ie8 visible-ie9">Email</label>
-				<input class="form-control placeholder-no-fix" type="text" placeholder="Email" name="email"/>
+				<input class="form-control placeholder-no-fix" type="text" placeholder="Email" name="email" value="{{ old('email') }}"/>
 			</div>
 			<p class="hint">
 				 Enter your account details below:
@@ -122,7 +137,7 @@
 			</div>
 			<div class="form-group">
 				<label class="control-label visible-ie8 visible-ie9">Re-type Your Password</label>
-				<input class="form-control placeholder-no-fix" type="password" autocomplete="off" placeholder="Re-type Your Password" name="rpassword"/>
+				<input class="form-control placeholder-no-fix" type="password" autocomplete="off" placeholder="Re-type Your Password" name="password_confirmation"/>
 			</div>
 			<div class="form-actions">
 				<button type="button" id="register-back-btn" class="btn btn-default">Back</button>

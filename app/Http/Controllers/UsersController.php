@@ -1,5 +1,6 @@
 <?php namespace App\Http\Controllers;
 
+use Auth;
 use App\User;
 use App\Http\Requests;
 use App\Http\Controllers\Controller;
@@ -16,7 +17,11 @@ class UsersController extends Controller {
 
 	public function index()
 	{
-		return view('dashboard');
+		if (Auth::check()) {
+			return view('dashboard');
+		} else {
+			return view('login');
+		}
 	}
 
 	public function create()

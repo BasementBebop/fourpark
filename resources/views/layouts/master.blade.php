@@ -63,7 +63,8 @@
 					<li class="dropdown dropdown-user">
 						<a href="javascript:;" class="dropdown-toggle" data-toggle="dropdown" data-hover="dropdown" data-close-others="true">
 						<span class="username">
-						Chris </span>
+						{{ Auth::user()->first_name }}
+						</span>
 						<i class="fa fa-angle-down"></i>
 						</a>
 						<ul class="dropdown-menu dropdown-menu-default">
@@ -74,7 +75,7 @@
 							<li class="divider">
 							</li>
 							<li>
-								<a href="login">
+								<a href="auth/logout">
 								<i class="icon-key"></i> Log Out </a>
 							</li>
 						</ul>
@@ -108,26 +109,20 @@
 						<span class="title">Dashboard</span>
 						</a>
 					</li>
-					<li class="start">
-						<a href="all_employees">
-						<i class="icon-users"></i>
-						<span class="title">Employees (Admin only)</span>
-						</a>
-					</li>
+					@if (Auth::user()->isAdmin())
+						<li class="start">
+							<a href="all_employees">
+							<i class="icon-users"></i>
+							<span class="title">Employees (Admin only)</span>
+							</a>
+						</li>
+					@endif
 					<li class="start">
 						<a href="settings">
 						<i class="icon-settings"></i>
 						<span class="title">Settings</span>
 						</a>
 					</li>
-					@if (Auth::check())
-						<li>
-							<a href="auth/logout">
-							<i class="icon-settings"></i>
-							<span>Logout </span>({{ Auth::user()->last_name }})
-							</a>
-						</li>
-					@endif
 				<!-- END SIDEBAR MENU -->
 			</div>
 		</div>
