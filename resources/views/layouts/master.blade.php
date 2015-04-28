@@ -120,6 +120,14 @@
 						<span class="title">Settings</span>
 						</a>
 					</li>
+					@if (Auth::check())
+						<li>
+							<a href="auth/logout">
+							<i class="icon-settings"></i>
+							<span>Logout </span>({{ Auth::user()->last_name }})
+							</a>
+						</li>
+					@endif
 				<!-- END SIDEBAR MENU -->
 			</div>
 		</div>

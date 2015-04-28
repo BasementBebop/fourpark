@@ -49,7 +49,8 @@
 	<!-- BEGIN LOGIN -->
 	<div class="content">
 		<!-- BEGIN LOGIN FORM -->
-		<form class="login-form" action="/" method="post">
+		<form class="login-form" action="{{ url('/auth/login') }}" method="POST">
+			<input type="hidden" name="_token" value="{{ csrf_token() }}">
 			<h3 class="form-title">Sign In</h3>
 			<div class="alert alert-danger display-hide">
 				<button class="close" data-close="alert"></button>
@@ -59,7 +60,7 @@
 			<div class="form-group">
 				<!--ie8, ie9 does not support html5 placeholder, so we just show field title for that-->
 				<label class="control-label visible-ie8 visible-ie9">Email</label>
-				<input class="form-control form-control-solid placeholder-no-fix" type="text" autocomplete="off" placeholder="Email" name="email"/>
+				<input class="form-control form-control-solid placeholder-no-fix" type="text" autocomplete="off" placeholder="Email" name="email" value="{{ old('email') }}"/>
 			</div>
 			<div class="form-group">
 				<label class="control-label visible-ie8 visible-ie9">Password</label>
