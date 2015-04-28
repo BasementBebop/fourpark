@@ -1,16 +1,16 @@
 <?php namespace App\Http\Controllers;
 
-use App\Employee;
+use App\User;
 use App\Http\Requests;
 use App\Http\Controllers\Controller;
 
 use Illuminate\Http\Request;
 
-class EmployeesController extends Controller {
+class UsersController extends Controller {
 
 	public function showEmployees()
 	{
-		$employees = Employee::all();
+		$employees = User::all();
 		return view('employees.all_employees', compact('employees'));
 	}
 
@@ -21,19 +21,19 @@ class EmployeesController extends Controller {
 
 	public function create()
 	{
-		//
+		return view('login');
 	}
 
 	public function store()
 	{
 		$input = Request::all();
-		Employee::create($input);
+		User::create($input);
 		return Redirect::route('admin.employees');
 	}
 
 	public function show($id)
 	{
-		$employee = Employee::find($id);
+		$employee = User::find($id);
 		return view('employees.settings', compact('employee'));
 	}
 

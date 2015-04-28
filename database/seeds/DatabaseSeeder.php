@@ -2,7 +2,7 @@
 
 use Illuminate\Database\Seeder;
 use Illuminate\Database\Eloquent\Model;
-use App\Employee;
+use App\User;
 use App\Holiday;
 use App\Spot;
 
@@ -13,7 +13,7 @@ class DatabaseSeeder extends Seeder {
 	{
 		Model::unguard();
 
-		$this->call('EmployeeTableSeeder');
+		$this->call('UserTableSeeder');
 		$this->call('HolidayTableSeeder');
 		$this->call('SpotTableSeeder');
 	}
@@ -44,56 +44,56 @@ class SpotTableSeeder extends Seeder {
 		DB::table('spots')->delete();
 
 		Spot::create([
-			'employee_id' => Employee::all()[1]->id,
+			'user_id' => User::all()[1]->id,
 			'lot_name' => 'behind',
 			'status' => 'available'
 		]);
 		Spot::create([
-			'employee_id' => Employee::all()[10]->id,
+			'user_id' => User::all()[10]->id,
 			'lot_name' => 'creepy',
 			'status' => 'taken'
 		]);
 		Spot::create([
-			'employee_id' => Employee::all()[4]->id,
+			'user_id' => User::all()[4]->id,
 			'lot_name' => 'behind',
 			'status' => 'available'
 		]);
 		Spot::create([
-			'employee_id' => Employee::all()[7]->id,
+			'user_id' => User::all()[7]->id,
 			'lot_name' => 'creepy',
 			'status' => 'taken'
 		]);
 		Spot::create([
-			'employee_id' => Employee::all()[20]->id,
+			'user_id' => User::all()[20]->id,
 			'lot_name' => 'behind',
 			'status' => 'taken'
 		]);
 		Spot::create([
-			'employee_id' => Employee::all()[16]->id,
+			'user_id' => User::all()[16]->id,
 			'lot_name' => 'creepy',
 			'status' => 'available'
 		]);
 		Spot::create([
-			'employee_id' => Employee::all()[13]->id,
+			'user_id' => User::all()[13]->id,
 			'lot_name' => 'behind',
 			'status' => 'available'
 		]);
 		Spot::create([
-			'employee_id' => Employee::all()[19]->id,
+			'user_id' => User::all()[19]->id,
 			'lot_name' => 'creepy',
 			'status' => 'taken'
 		]);
 	}
 }
 
-// Seeds employees table
-class EmployeeTableSeeder extends Seeder {
+// Seeds users table
+class UserTableSeeder extends Seeder {
 
 	public function run()
 	{
-		DB::table('employees')->delete();
+		DB::table('users')->delete();
 
-		Employee::create([
+		User::create([
 			'first_name' => 'Laura',
 			'last_name' => 'Atwell',
 			'email' => 'fake1@adpearance.com',
@@ -105,7 +105,7 @@ class EmployeeTableSeeder extends Seeder {
 			'admin' => '0',
 			'alert_setting' => 'email'
 			]);
-		Employee::create([
+		User::create([
 			'first_name' => 'Aaron',
 			'last_name' => 'James',
 			'email' => 'fake2@adpearance.com',
@@ -117,7 +117,7 @@ class EmployeeTableSeeder extends Seeder {
 			'admin' => '0',
 			'alert_setting' => 'sms'
 			]);
-		Employee::create([
+		User::create([
 			'first_name' => 'Anne',
 			'last_name' => 'Jansa',
 			'email' => 'fake3@adpearance.com',
@@ -129,7 +129,7 @@ class EmployeeTableSeeder extends Seeder {
 			'admin' => '0',
 			'alert_setting' => 'both'
 			]);
-		Employee::create([
+		User::create([
 			'first_name' => 'Calvin',
 			'last_name' => 'Mesman',
 			'email' => 'fake4@adpearance.com',
@@ -141,7 +141,7 @@ class EmployeeTableSeeder extends Seeder {
 			'admin' => '0',
 			'alert_setting' => 'email'
 			]);
-		Employee::create([
+		User::create([
 			'first_name' => 'Jeff',
 			'last_name' => 'Otis',
 			'email' => 'fake5@adpearance.com',
@@ -153,7 +153,7 @@ class EmployeeTableSeeder extends Seeder {
 			'admin' => '0',
 			'alert_setting' => 'none'
 			]);
-		Employee::create([
+		User::create([
 			'first_name' => 'Geoff',
 			'last_name' => 'Shauger',
 			'email' => 'fake6@adpearance.com',
@@ -165,7 +165,7 @@ class EmployeeTableSeeder extends Seeder {
 			'admin' => '1',
 			'alert_setting' => 'none'
 			]);
-		Employee::create([
+		User::create([
 			'first_name' => 'Meredith',
 			'last_name' => 'Smith',
 			'email' => 'fake7@adpearance.com',
@@ -177,7 +177,7 @@ class EmployeeTableSeeder extends Seeder {
 			'admin' => '0',
 			'alert_setting' => 'sms'
 			]);
-		Employee::create([
+		User::create([
 			'first_name' => 'David',
 			'last_name' => 'Steinberg',
 			'email' => 'fake8@adpearance.com',
@@ -189,7 +189,7 @@ class EmployeeTableSeeder extends Seeder {
 			'admin' => '1',
 			'alert_setting' => 'email'
 			]);
-		Employee::create([
+		User::create([
 			'first_name' => 'Stephanie',
 			'last_name' => 'Reck',
 			'email' => 'fake9@adpearance.com',
@@ -201,7 +201,7 @@ class EmployeeTableSeeder extends Seeder {
 			'admin' => '0',
 			'alert_setting' => 'both'
 			]);
-		Employee::create([
+		User::create([
 			'first_name' => 'Rebecca',
 			'last_name' => 'Band',
 			'email' => 'fake10@adpearance.com',
@@ -213,7 +213,7 @@ class EmployeeTableSeeder extends Seeder {
 			'admin' => '0',
 			'alert_setting' => 'email'
 			]);
-		Employee::create([
+		User::create([
 			'first_name' => 'John',
 			'last_name' => 'Rising',
 			'email' => 'fake11@adpearance.com',
@@ -225,7 +225,7 @@ class EmployeeTableSeeder extends Seeder {
 			'admin' => '0',
 			'alert_setting' => 'both'
 			]);
-		Employee::create([
+		User::create([
 			'first_name' => 'David',
 			'last_name' => 'Alston',
 			'email' => 'fake12@adpearance.com',
@@ -237,7 +237,7 @@ class EmployeeTableSeeder extends Seeder {
 			'admin' => '0',
 			'alert_setting' => 'none'
 			]);
-		Employee::create([
+		User::create([
 			'first_name' => 'Erick',
 			'last_name' => 'Merchant',
 			'email' => 'fake13@adpearance.com',
@@ -249,7 +249,7 @@ class EmployeeTableSeeder extends Seeder {
 			'admin' => '0',
 			'alert_setting' => 'email'
 			]);
-		Employee::create([
+		User::create([
 			'first_name' => 'Bryan',
 			'last_name' => 'Schoen',
 			'email' => 'fake14@adpearance.com',
@@ -261,7 +261,7 @@ class EmployeeTableSeeder extends Seeder {
 			'admin' => '1',
 			'alert_setting' => 'sms'
 			]);
-		Employee::create([
+		User::create([
 			'first_name' => 'Eva',
 			'last_name' => 'Wong',
 			'email' => 'fake15@adpearance.com',
@@ -273,7 +273,7 @@ class EmployeeTableSeeder extends Seeder {
 			'admin' => '0',
 			'alert_setting' => 'both'
 			]);
-		Employee::create([
+		User::create([
 			'first_name' => 'Dennis',
 			'last_name' => "O'Connell",
 			'email' => 'fake16@adpearance.com',
@@ -285,7 +285,7 @@ class EmployeeTableSeeder extends Seeder {
 			'admin' => '1',
 			'alert_setting' => 'none'
 			]);
-		Employee::create([
+		User::create([
 			'first_name' => 'David',
 			'last_name' => 'Henry',
 			'email' => 'fake17@adpearance.com',
@@ -297,7 +297,7 @@ class EmployeeTableSeeder extends Seeder {
 			'admin' => '0',
 			'alert_setting' => 'sms'
 			]);
-		Employee::create([
+		User::create([
 			'first_name' => 'Mary',
 			'last_name' => 'Geyer',
 			'email' => 'fake18@adpearance.com',
@@ -309,7 +309,7 @@ class EmployeeTableSeeder extends Seeder {
 			'admin' => '0',
 			'alert_setting' => 'email'
 			]);
-		Employee::create([
+		User::create([
 			'first_name' => 'Kelly',
 			'last_name' => 'Kitchel',
 			'email' => 'fake19@adpearance.com',
@@ -321,7 +321,7 @@ class EmployeeTableSeeder extends Seeder {
 			'admin' => '0',
 			'alert_setting' => 'email'
 			]);
-		Employee::create([
+		User::create([
 			'first_name' => 'Stephen',
 			'last_name' => 'Hornbrook',
 			'email' => 'fake20@adpearance.com',
@@ -333,7 +333,7 @@ class EmployeeTableSeeder extends Seeder {
 			'admin' => '0',
 			'alert_setting' => 'sms'
 			]);
-		Employee::create([
+		User::create([
 			'first_name' => 'Cameron',
 			'last_name' => 'Niles',
 			'email' => 'fake21@adpearance.com',
@@ -345,7 +345,7 @@ class EmployeeTableSeeder extends Seeder {
 			'admin' => '0',
 			'alert_setting' => 'both'
 			]);
-		Employee::create([
+		User::create([
 			'first_name' => 'Kenna',
 			'last_name' => 'Borgmeier',
 			'email' => 'fake22@adpearance.com',

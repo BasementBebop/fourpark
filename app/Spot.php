@@ -12,8 +12,8 @@ class Spot extends Model {
 	protected $fillable = ['status'];
 
 	// Sets up the relationship between Spot and Employee
-	public function employee()
+	public function user()
     {
-        return $this->belongsTo('App\Employee');
+        return $this->belongsTo('App\User');
     }
 }

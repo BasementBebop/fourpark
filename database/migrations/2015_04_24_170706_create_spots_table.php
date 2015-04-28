@@ -10,8 +10,8 @@ class CreateSpotsTable extends Migration {
 		Schema::create('spots', function(Blueprint $table)
 		{
 			$table->increments('id');
-			$table->integer('employee_id')->unsigned();
-			$table->foreign('employee_id')->references('id')->on('employees')->onDelete('cascade');
+			$table->integer('user_id')->unsigned();
+			$table->foreign('user_id')->references('id')->on('users')->onDelete('cascade');
 			$table->enum('lot_name', ['creepy', 'behind']);
 			$table->enum('status', ['available', 'taken']);
 			$table->dateTime('time_notification_sent')->nullable();

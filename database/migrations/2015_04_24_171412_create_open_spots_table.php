@@ -12,10 +12,10 @@ class CreateOpenSpotsTable extends Migration {
 			$table->increments('id');
 			$table->integer('spot_id')->unsigned();
 			$table->foreign('spot_id')->references('id')->on('spots')->onDelete('cascade');
-			$table->integer('employee_id')->unsigned();
-			$table->foreign('employee_id')->references('id')->on('employees')->onDelete('cascade');
-			$table->integer('assigned_employee_id')->unsigned()->nullable();
-			$table->foreign('assigned_employee_id')->references('id')->on('employees')->onDelete('cascade');
+			$table->integer('user_id')->unsigned();
+			$table->foreign('user_id')->references('id')->on('users')->onDelete('cascade');
+			$table->integer('assigned_user_id')->unsigned()->nullable();
+			$table->foreign('assigned_user_id')->references('id')->on('users')->onDelete('cascade');
 			$table->date('open_date')->nullable();
 			$table->date('end_date')->nullable();
 			$table->timestamps();

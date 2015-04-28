@@ -7,12 +7,12 @@ use Illuminate\Auth\Passwords\CanResetPassword;
 use Illuminate\Contracts\Auth\Authenticatable as AuthenticatableContract;
 use Illuminate\Contracts\Auth\CanResetPassword as CanResetPasswordContract;
 
-class Employee extends Model implements AuthenticatableContract, CanResetPasswordContract {
+class User extends Model implements AuthenticatableContract, CanResetPasswordContract {
 
 	use Authenticatable, CanResetPassword;
 
     // Database table
-	protected $table = 'employees';
+	protected $table = 'users';
 
     // These attributes are eligible for mass assignment
 	protected $fillable = ['first_name', 'last_name', 'wants_spot', 'has_spot', 'phone_number', 'email', 'alert_setting', 'password'];
@@ -36,7 +36,7 @@ class Employee extends Model implements AuthenticatableContract, CanResetPasswor
             $spot->update(['status' => 'taken']);
             DB::table('open_spots')
                 ->where('spot_id', $spot->id)
-                ->update(['assigned_employee_id' => $this->id]);
+                ->update(['assigned_user_id' => $this->id]);
         }
     }
 
@@ -47,7 +47,7 @@ class Employee extends Model implements AuthenticatableContract, CanResetPasswor
             $this->spot->update(['status' => 'available']);
             DB::table('open_spots')->insert([
                 'spot_id' => $this->spot->id,
-                'employee_id' => $this->id,
+                'user_id' => $this->id,
                 'open_date' => $open_date,
                 'end_date' => $end_date    
             ]);
@@ -70,7 +70,7 @@ class Employee extends Model implements AuthenticatableContract, CanResetPasswor
             $this->update(['has_spot' => 0]);
             DB::table('open_spots')
                 ->where('spot_id', $spot->id)
-                ->update(['assigned_employee_id' => null]);
+                ->update(['assigned_user_id' => null]);
         }
     }
 
