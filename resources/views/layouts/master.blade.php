@@ -69,13 +69,13 @@
 						</a>
 						<ul class="dropdown-menu dropdown-menu-default">
 							<li>
-								<a href="settings">
+								<a href="/settings">
 								<i class="icon-user"></i> Settings </a>
 							</li>
 							<li class="divider">
 							</li>
 							<li>
-								<a href="auth/logout">
+								<a href="/auth/logout">
 								<i class="icon-key"></i> Log Out </a>
 							</li>
 						</ul>
@@ -104,21 +104,21 @@
 						<!-- END SIDEBAR TOGGLER BUTTON -->
 					</li>
 					<li class="start">
-						<a href="dashboard">
+						<a href="/dashboard">
 						<i class="icon-home"></i>
 						<span class="title">Dashboard</span>
 						</a>
 					</li>
 					@if (Auth::user()->isAdmin())
 						<li class="start">
-							<a href="all_employees">
+							<a href="/all_employees">
 							<i class="icon-users"></i>
 							<span class="title">Employees</span>
 							</a>
 						</li>
 					@endif
 					<li class="start">
-						<a href="settings">
+						<a href="/settings">
 						<i class="icon-settings"></i>
 						<span class="title">Settings</span>
 						</a>

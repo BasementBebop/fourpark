@@ -41,9 +41,8 @@
 
 
 
-{!! Form::model($user, ['method' => 'PATCH', 'action' => ['UsersController@giveUpSpot'], 'class' => 'form-horizontal form-bordered']) !!}
+		{!! Form::model($user, ['method' => 'PATCH', 'action' => ['UsersController@giveUpSpot'], 'class' => 'form-horizontal form-bordered']) !!}
 
-  			{{-- <form action="#" class="form-horizontal form-bordered"> --}}
   				<div class="form-body">
 		            <div class="form-group">
 			            <div class="row">
@@ -52,24 +51,18 @@
 						<div class="col-md-12">
 							<div class="input-group input-large date-picker col-xs-offset-1 col-sm-offset-3 col-md-offset-1 input-daterange fa" data-date-format="yyyy-mm-dd" data-date-start-date="+0d">
 
-{!! Form::text('open_date', null, ['class' => 'form-control']) !!}
+								{!! Form::text('open_date', null, ['class' => 'form-control']) !!}
 
-								{{-- <input type="text" class="form-control" name="from"> --}}
 								<span class="input-group-addon">to</span>
 
-{!! Form::text('end_date', null, ['class' => 'form-control']) !!}
+								{!! Form::text('end_date', null, ['class' => 'form-control']) !!}
 
-								{{-- <input type="text" class="form-control" name="to"> --}}
 							</div>
-							<!-- /input-group -->
 							<span class="help-block col-xs-offset-1 col-sm-offset-3 col-md-offset-1">
 							Select date range </span>
 						</div>
 					</div>
   				</div>
-        {{-- </form> --}}
-
-
 			</div>
       <!-- END FORM-->
       	<div class="portlet-body util-btn-margin-bottom-5">

@@ -15,20 +15,23 @@
 					<div class="row">
 						<div class="col-md-6">
 							<div class="btn-group">
-								<button id="sample_editable_1_new" class="btn green-meadow">
-								Add New <i class="fa fa-plus"></i>
-								</button>
+								<a href="/employees/create" class="btn green-meadow">Add New <i class="fa fa-plus"></i></a>
+
 							</div>
 						</div>
 					</div>
 				</div>
-				<table class="table table-striped table-hover table-bordered" id="sample_editable_1">
+				<table class="table table-hover table-bordered" id="sample_editable_1">
 					<thead>
 						<tr>
 							<th>First Name</th>
 							<th>Last Name</th>
 							<th>Email</th>
+							<th>Phone Number</th>
 							<th>Parking Spot</th>
+							<th>Wants Spot</th>
+							<th>Active</th>
+							<th>Admin</th>
 							<th>Edit</th>
 							<th>Delete</th>
 						</tr>
@@ -39,20 +42,42 @@
 								<td> {{ $user->first_name }} </td>
 								<td> {{ $user->last_name }} </td>
 								<td> {{ $user->email }} </td>
+								<td> {{ $user->phone_number }} </td>
 								<td>
 									@if ($user->has_spot == 1)
 										Yes
 									@else
 										No
 									@endif
-								</td>
+								</td>	
 								<td>
-									<a class="edit" href="javascript:;">
-									Edit </a>
-								</td>
+									@if ($user->wants_spot == 1)
+										Yes
+									@else
+										No
+									@endif
+								</td>	
 								<td>
-									<a class="delete" href="javascript:;">
-									Delete </a>
+									@if ($user->active == 1)
+										Yes
+									@else
+										No
+									@endif
+								</td>
+
+								<td>
+									@if ($user->isAdmin())
+										Yes
+									@else
+										No
+									@endif
+								</td>
+								<td><a href="/employees/{{ $user->id }}/edit" class="btn btn-sm bg-green-meadow">Edit</a></td>
+								<td>
+									{!! Form::open(['method' => 'DELETE', 'action' => ['UsersController@destroy', $user->id]]) !!}
+
+										{!! Form::submit('Delete', ['class' => 'btn btn-sm bg-red-intense']) !!}
+									{!! Form::close() !!}
 								</td>
 							</tr>
 						@endforeach
@@ -62,6 +87,4 @@
 		</div>
 		<!-- END EMPLOYEES TABLE PORTLET-->
 	</div>
-
-
 @stop
