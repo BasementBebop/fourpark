@@ -19,7 +19,7 @@
 							<label class="col-md-4 control-label">Alert Settings</label>
 							<div class="col-md-8">
 								<div class="btn-group" data-toggle="buttons">
-										<label class="btn btn-default">
+										<label class="btn btn-default active">
 											{!! Form::radio('alert_setting', 'email', null, ['class' => 'toggle']) !!}
 											Email
 										</label>
@@ -73,7 +73,7 @@
 								</div>
 							</div>
 						</div>
-						<div class="form-group">
+{{-- 						<div class="form-group">
 							{!! Form::label('password_confirmation', 'Password confirmation', ['class' => 'col-md-4 control-label']) !!}
 							<div class="col-md-8">
 								<div class="input-group">
@@ -84,7 +84,7 @@
 								</div>
 							</div>
 						</div>
-					</div>
+ --}}					</div>
 					<div class="form-actions">
 						<div class="row">
 							<div class="col-md-offset-3 col-md-9">

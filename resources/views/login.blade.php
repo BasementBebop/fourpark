@@ -72,12 +72,12 @@
 				<input type="checkbox" name="remember"/>Remember </label>
 				<a href="javascript:;" id="forget-password" class="forget-password">Forgot Password?</a>
 			</div>
-			<div class="create-account">
+{{-- 			<div class="create-account">
 				<p>
 					<a href="javascript:;" id="register-btn" class="uppercase">Create an account</a>
 				</p>
 			</div>
-		</form>
+ --}}		</form>
 		<!-- END LOGIN FORM -->
 		<!-- BEGIN FORGOT PASSWORD FORM -->
 		<form class="forget-form" action="{{ url('/password/email') }}" method="post">
@@ -96,7 +96,7 @@
 		</form>
 		<!-- END FORGOT PASSWORD FORM -->
 		<!-- BEGIN REGISTRATION FORM -->
-		<form class="register-form" action="{{ url('/auth/register') }}" method="POST">
+{{-- 		<form class="register-form" action="{{ url('/auth/register') }}" method="POST">
 			<input type="hidden" name="_token" value="{{ csrf_token() }}">
 			<h3>Sign Up</h3>
 			<p class="hint">
@@ -115,7 +115,6 @@
 				<input class="form-control placeholder-no-fix" type="text" placeholder="Phone Number" name="phone_number" value="{{ old('phone_number') }}"/>
 			</div>
 			<div class="form-group">
-				<!--ie8, ie9 does not support html5 placeholder, so we just show field title for that-->
 				<label class="control-label visible-ie8 visible-ie9">Email</label>
 				<input class="form-control placeholder-no-fix" type="text" placeholder="Email" name="email" value="{{ old('email') }}"/>
 			</div>
@@ -135,7 +134,7 @@
 				<button type="submit" id="register-submit-btn" class="btn btn-success uppercase pull-right">Submit</button>
 			</div>
 		</form>
-		<!-- END REGISTRATION FORM -->
+ --}}		<!-- END REGISTRATION FORM -->
 	</div>
 	<div class="copyright">
 		 2015 &copy; FourPark by Adpearance

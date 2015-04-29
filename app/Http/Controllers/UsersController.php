@@ -33,20 +33,12 @@ class UsersController extends Controller {
 
 	public function store()
 	{
-		$alert_setting = Request::input('alert_setting');
-		$first_name = Request::input('first_name');
-		$last_name = Request::input('last_name');
-		$phone_number = Request::input('phone_number');
-		$email = Request::input('email');
-		$password = Request::input('password');
-		$password_confirmation = Request::input('password_confirmation');
-
+		$input = Request::all();
+		$password = $input['password'];
 		$password = Hash::make($password);
-		$password_confirmation = Hash::make($password_confirmation);
-
-		$user = User::create([$alert_setting, $first_name, $last_name, $phone_number, $email, $password, $password_confirmation]);
-
-		return $alert_setting;
+		$input['password'] = $password;
+		$user = User::create($input);
+		return redirect('/all_employees');
 	}
 
 	// public function show($id)
