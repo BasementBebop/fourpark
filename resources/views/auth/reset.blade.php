@@ -48,15 +48,6 @@
 	<!-- END LOGO -->	
 	<!-- BEGIN RESET PASSWORD -->
 	<div class="content">
-		@if (count($errors) > 0)
-			<div class="alert alert-danger">
-				<ul>
-					@foreach ($errors->all() as $error)
-						<li>{{ $error }}</li>
-					@endforeach
-				</ul>
-			</div>
-		@endif
 		<!-- BEGIN RESET PASSWORD FORM -->
 		<form class="login-form" action="{{ url('/password/reset') }}" method="POST">
 			<input type="hidden" name="_token" value="{{ csrf_token() }}">

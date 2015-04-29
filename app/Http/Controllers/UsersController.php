@@ -5,7 +5,7 @@ use App\User;
 use App\Http\Requests;
 use App\Http\Controllers\Controller;
 
-use Illuminate\Http\Request;
+use Request;
 
 class UsersController extends Controller {
 
@@ -34,10 +34,10 @@ class UsersController extends Controller {
 		// 
 	}
 
-	public function show($id)
-	{
-		// 
-	}
+	// public function show($id)
+	// {
+	// 	// 
+	// }
 
 	public function edit()
 	{
@@ -45,13 +45,13 @@ class UsersController extends Controller {
 		return view('employees.settings', compact('user'));
 	}
 
-	public function update($id)
+	public function update()
 	{
 		$user = Auth::user();
-		$input = array_except(Input::all(), '_method');
+		$input = Request::all();
 		$user->update($input);
 	 
-		return Redirect::route('employees.settings');
+		return redirect('/settings');
 	}
 
 	public function destroy($id)

@@ -8,7 +8,7 @@ Route::get('settings', 'UsersController@edit');
 
 Route::get('all_employees', 'UsersController@showEmployees');
 
-Route::resource('employees', 'UsersController');
+Route::resource('employees', 'UsersController', ['except' => 'show']);
 
 Route::controllers([
 	'auth' => 'Auth\AuthController',
