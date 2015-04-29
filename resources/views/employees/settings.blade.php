@@ -2,10 +2,6 @@
 
 @section('content')
 
-
-
-
-	
 	{{-- BEGIN EDIT SETTINGS PORTLET --}}
 	<div class="col-md-6">
 		<div class="portlet box green-meadow">

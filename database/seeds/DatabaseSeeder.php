@@ -83,6 +83,11 @@ class SpotTableSeeder extends Seeder {
 			'lot_name' => 'creepy',
 			'status' => 'taken'
 		]);
+		Spot::create([
+			'user_id' => User::all()[0]->id,
+			'lot_name' => 'creepy',
+			'status' => 'taken'
+		]);
 	}
 }
 
@@ -99,7 +104,8 @@ class UserTableSeeder extends Seeder {
 			'email' => 'chris@joywebb.com',
 			'password' => Hash::make('password'),
 			'phone_number' => '503-548-1320',
-			'admin' => '1'
+			'admin' => '1',
+			'has_spot' => 1
 			]);
 		User::create([
 			'first_name' => 'Laura',

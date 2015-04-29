@@ -18,7 +18,8 @@ class UsersController extends Controller {
 	public function index()
 	{
 		if (Auth::check()) {
-			return view('dashboard');
+			$user = Auth::user();
+			return view('dashboard', compact('user'));
 		} else {
 			return view('login');
 		}
@@ -43,6 +44,16 @@ class UsersController extends Controller {
 	{
 		$user = Auth::user();
 		return view('employees.settings', compact('user'));
+	}
+
+	public function giveUpSpot()
+	{
+		$user = Auth::user();
+		$open_date = Request::input('open_date');
+		$end_date = Request::input('end_date');
+		$user->giveUpSpot($open_date, $end_date);
+	
+		return redirect('/');
 	}
 
 	public function update()

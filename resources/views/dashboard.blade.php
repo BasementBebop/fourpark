@@ -3,17 +3,27 @@
 @section('content')
 
 <h3 class="page-title">
-	Welcome {{ Auth::user()->first_name }}!
-	@if (Auth::user()->has_spot == 1)
-		<small class="label bg-green-meadow">HAS PARKING SPOT</small>
-	@else
-		<small class="label bg-red-intense">DOESN'T HAVE PARKING SPOT</small>
-	@endif
+	<div class="row">
+		<div class="col-md-6">
+		Welcome {{ Auth::user()->first_name }}!
+		@if (Auth::user()->has_spot == 1)
+			<small class="label bg-green-meadow">HAS PARKING SPOT</small>
+		@else
+			<small class="label bg-red-intense">DOESN'T HAVE PARKING SPOT</small>
+		</div>
+		<div class="col-md-2">
+	  		<a href="#" class="btn green-meadow btn-block">I want a spot!</a>
+		</div>
+		@endif		
+	</div>
 </h3>
 
 <!-- BEGIN PAGE CONTENT-->
 
 <!-- PARKING SPOT OWNER PORTLETS -->
+
+
+
 
 <div class="row">
   <!-- RELEASE DAYS (PARKING SPOT OWNER) PORTLET-->
@@ -26,18 +36,30 @@
 		  </div>
       <!-- BEGIN FORM-->
       <div class="portlet-body form">
-  			<form action="#" class="form-horizontal form-bordered">
+
+
+
+
+
+{!! Form::model($user, ['method' => 'PATCH', 'action' => ['UsersController@giveUpSpot'], 'class' => 'form-horizontal form-bordered']) !!}
+
+  			{{-- <form action="#" class="form-horizontal form-bordered"> --}}
   				<div class="form-body">
 		            <div class="form-group">
 			            <div class="row">
 							<h4 class="text-center block">Release your parking spot for the specified date range: </h4>
 			            </div>
 						<div class="col-md-12">
-							<div class="input-group input-large date-picker col-xs-offset-1 col-sm-offset-3 col-md-offset-1 input-daterange fa" data-date-format="mm/dd/yyyy" data-date-start-date="+0d">
-								<input type="text" class="form-control" name="from">
-								<span class="input-group-addon">
-								to </span>
-								<input type="text" class="form-control" name="to">
+							<div class="input-group input-large date-picker col-xs-offset-1 col-sm-offset-3 col-md-offset-1 input-daterange fa" data-date-format="yyyy-mm-dd" data-date-start-date="+0d">
+
+{!! Form::text('open_date', null, ['class' => 'form-control']) !!}
+
+								{{-- <input type="text" class="form-control" name="from"> --}}
+								<span class="input-group-addon">to</span>
+
+{!! Form::text('end_date', null, ['class' => 'form-control']) !!}
+
+								{{-- <input type="text" class="form-control" name="to"> --}}
 							</div>
 							<!-- /input-group -->
 							<span class="help-block col-xs-offset-1 col-sm-offset-3 col-md-offset-1">
@@ -45,15 +67,24 @@
 						</div>
 					</div>
   				</div>
-        </form>
+        {{-- </form> --}}
+
+
 			</div>
       <!-- END FORM-->
-      <div class="portlet-body util-btn-margin-bottom-5">
+      	<div class="portlet-body util-btn-margin-bottom-5">
   			<div class="clearfix">
-  				<a href="#release" class="btn green-meadow btn-block" data-toggle="modal">
-  				Submit </a>
+{{--   				<a href="#release" class="btn green-meadow btn-block" data-toggle="modal">
+  				Submit </a> --}}
+
+{!! Form::submit('Submit', ['class' => 'btn green-meadow btn-block']) !!}
+  				
   			</div>
   		</div>
+
+{!! Form::close() !!}
+		
+
 		</div>
   </div>
 	<!-- END PORTLET-->

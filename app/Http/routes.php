@@ -8,6 +8,9 @@ Route::get('settings', 'UsersController@edit');
 
 Route::get('all_employees', 'UsersController@showEmployees');
 
+Route::patch('dashboard', 'UsersController@giveUpSpot');
+
+
 Route::resource('employees', 'UsersController', ['except' => 'show']);
 
 Route::controllers([
