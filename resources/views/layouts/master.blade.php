@@ -113,7 +113,7 @@
 						<li class="start">
 							<a href="all_employees">
 							<i class="icon-users"></i>
-							<span class="title">Employees (Admin only)</span>
+							<span class="title">Employees</span>
 							</a>
 						</li>
 					@endif

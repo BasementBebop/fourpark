@@ -3,8 +3,12 @@
 @section('content')
 
 <h3 class="page-title">
-	Welcome Chris!
-	<small class="label bg-green-meadow">CURRENTLY HAS PARKING SPOT</small>
+	Welcome {{ Auth::user()->first_name }}!
+	@if (Auth::user()->has_spot == 1)
+		<small class="label bg-green-meadow">HAS PARKING SPOT</small>
+	@else
+		<small class="label bg-red-intense">DOESN'T HAVE PARKING SPOT</small>
+	@endif
 </h3>
 
 <!-- BEGIN PAGE CONTENT-->

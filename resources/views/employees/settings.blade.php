@@ -12,19 +12,36 @@
 			</div>
 			<div class="portlet-body form">
 				<!-- BEGIN FORM-->
+
 				<form action="#" class="form-horizontal">
 					<div class="form-body">
 						<div class="form-group" data-toggle="buttons">
 							<label class="col-md-4 control-label">Alert Settings</label>
 							<div class="col-md-8">
 								<div class="btn-group" data-toggle="buttons">
-									<label class="btn btn-default active">
+									@if (Auth::user()->alert_setting == 'email')
+										<label class="btn btn-default active">
+									@else
+										<label class="btn btn-default">
+									@endif
 									<input type="radio" class="toggle"> Email </label>
-									<label class="btn btn-default">
+									@if (Auth::user()->alert_setting == 'sms')
+										<label class="btn btn-default active">
+									@else
+										<label class="btn btn-default">
+									@endif
 									<input type="radio" class="toggle"> SMS </label>
-									<label class="btn btn-default">
+									@if (Auth::user()->alert_setting == 'both')
+										<label class="btn btn-default active">
+									@else
+										<label class="btn btn-default">
+									@endif
 									<input type="radio" class="toggle"> Both </label>
-									<label class="btn btn-default">
+									@if (Auth::user()->alert_setting == 'none')
+										<label class="btn btn-default active">
+									@else
+										<label class="btn btn-default">
+									@endif
 									<input type="radio" class="toggle"> None </label>
 								</div>							
 							</div>
@@ -32,30 +49,25 @@
 						<div class="form-group">
 							<label class="col-md-4 control-label">First Name</label>
 							<div class="col-md-8">
-								<input type="text" class="form-control" placeholder="Enter first name">
+								<input type="text" class="form-control" value="{{ Auth::user()->first_name }}">
 							</div>
 						</div>
 						<div class="form-group">
 							<label class="col-md-4 control-label">Last Name</label>
 							<div class="col-md-8">
-								<input type="text" class="form-control" placeholder="Enter last name">
+								<input type="text" class="form-control" value="{{ Auth::user()->last_name }}">
 							</div>
 						</div>
 						<div class="form-group">
 							<label class="col-md-4 control-label">Phone number</label>
 							<div class="col-md-8">
-								<input type="text" class="form-control" placeholder="Phone number">
+								<input type="text" class="form-control" value="{{ Auth::user()->phone_number }}">
 							</div>
 						</div>
 						<div class="form-group">
 							<label class="col-md-4 control-label">Email Address</label>
 							<div class="col-md-8">
-								<div class="input-group">
-									<span class="input-group-addon">
-									<i class="fa fa-envelope"></i>
-									</span>
-									<input type="email" class="form-control" placeholder="Email Address">
-								</div>
+								<input type="email" class="form-control" value="{{ Auth::user()->email }}">
 							</div>
 						</div>
 						<div class="form-group">
@@ -101,6 +113,7 @@
 						</div>
 					</div>
 				</form>
+
 				<!-- END FORM-->
 			</div>
 		</div>

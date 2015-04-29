@@ -1,6 +1,7 @@
 <?php namespace App;
 
 use DB;
+use Mail;
 use Illuminate\Auth\Authenticatable;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Auth\Passwords\CanResetPassword;
@@ -77,9 +78,14 @@ class User extends Model implements AuthenticatableContract, CanResetPasswordCon
     // Sends notification to employee when spot becomes available
     public function sendNotification()
     {
-        while ($this->spot->status == 'available') {
-            // send email notification logic
-        }
+        Mail::send('emails.parking', [], function($message) {
+            $message->to($this->email, $this->first_name . ' ' . $this->last_name)->subject('A parking spot has just opened up for you.');
+        });
+
+
+        // while ($this->spot->status == 'available') {
+        //     // send email notification logic
+        // }
     }
 
     // Determines if an employee is an admin

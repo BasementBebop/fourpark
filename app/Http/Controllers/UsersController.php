@@ -11,8 +11,8 @@ class UsersController extends Controller {
 
 	public function showEmployees()
 	{
-		$employees = User::all();
-		return view('employees.all_employees', compact('employees'));
+		$users = User::all();
+		return view('employees.all_employees', compact('users'));
 	}
 
 	public function index()
@@ -31,27 +31,27 @@ class UsersController extends Controller {
 
 	public function store()
 	{
-		$input = Request::all();
-		User::create($input);
-		return Redirect::route('admin.employees');
+		// 
 	}
 
 	public function show($id)
 	{
-		$employee = User::find($id);
-		return view('employees.settings', compact('employee'));
+		// 
 	}
 
-	public function edit() // need id still
+	public function edit()
 	{
-		return view('employees.settings');
+		$user = Auth::user();
+		return view('employees.settings', compact('user'));
 	}
 
 	public function update($id)
 	{
+		$user = Auth::user();
 		$input = array_except(Input::all(), '_method');
-		$project->update($input);
-		return Redirect::route('projects.show');
+		$user->update($input);
+	 
+		return Redirect::route('employees.settings');
 	}
 
 	public function destroy($id)
