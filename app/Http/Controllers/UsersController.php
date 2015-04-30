@@ -100,5 +100,13 @@ class UsersController extends Controller {
 		return redirect('/');
 	}
 
+	public function reclaimSpot()
+	{
+		$user = Auth::user();
+		$user->reclaimSpot();
+
+		return redirect('/');
+	}
+
 
 }

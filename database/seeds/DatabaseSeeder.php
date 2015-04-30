@@ -46,47 +46,47 @@ class SpotTableSeeder extends Seeder {
 		Spot::create([
 			'user_id' => User::all()[1]->id,
 			'lot_name' => 'behind',
-			'status' => 'available'
+			'status' => 'pending'
 		]);
 		Spot::create([
 			'user_id' => User::all()[10]->id,
 			'lot_name' => 'creepy',
-			'status' => 'taken'
+			'status' => 'accepted'
 		]);
 		Spot::create([
 			'user_id' => User::all()[4]->id,
 			'lot_name' => 'behind',
-			'status' => 'available'
+			'status' => 'pending'
 		]);
 		Spot::create([
 			'user_id' => User::all()[7]->id,
 			'lot_name' => 'creepy',
-			'status' => 'taken'
+			'status' => 'accepted'
 		]);
 		Spot::create([
 			'user_id' => User::all()[20]->id,
 			'lot_name' => 'behind',
-			'status' => 'taken'
+			'status' => 'accepted'
 		]);
 		Spot::create([
 			'user_id' => User::all()[16]->id,
 			'lot_name' => 'creepy',
-			'status' => 'available'
+			'status' => 'pending'
 		]);
 		Spot::create([
 			'user_id' => User::all()[13]->id,
 			'lot_name' => 'behind',
-			'status' => 'available'
+			'status' => 'pending'
 		]);
 		Spot::create([
 			'user_id' => User::all()[19]->id,
 			'lot_name' => 'creepy',
-			'status' => 'taken'
+			'status' => 'accepted'
 		]);
 		Spot::create([
 			'user_id' => User::all()[0]->id,
 			'lot_name' => 'creepy',
-			'status' => 'taken'
+			'status' => 'accepted'
 		]);
 	}
 }

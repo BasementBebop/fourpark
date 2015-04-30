@@ -38,9 +38,9 @@ class User extends Model implements AuthenticatableContract, CanResetPasswordCon
     // Method for when an employee accepts a spot
     public function acceptSpot($spot)
     {
-        if ($spot->status == 'available' && $this->wants_spot == 1 && $this->has_spot == 0) {
+        if ($spot->status == 'pending' && $this->wants_spot == 1 && $this->has_spot == 0) {
             $this->update(['wants_spot' => 0, 'has_spot' => 1]);
-            $spot->update(['status' => 'taken']);
+            $spot->update(['status' => 'accepted']);
             DB::table('open_spots')
                 ->where('spot_id', $spot->id)
                 ->update(['assigned_user_id' => $this->id]);
@@ -50,8 +50,8 @@ class User extends Model implements AuthenticatableContract, CanResetPasswordCon
     // Method for when an employee gives up a spot
     public function giveUpSpot($open_date, $end_date)
     {
-        if ($this->spot->status == 'taken') {
-            $this->spot->update(['status' => 'available']);
+        if ($this->spot->status == 'accepted') {
+            $this->spot->update(['status' => 'pending']);
             DB::table('open_spots')->insert([
                 'spot_id' => $this->spot->id,
                 'user_id' => $this->id,
@@ -64,16 +64,16 @@ class User extends Model implements AuthenticatableContract, CanResetPasswordCon
     // Method for when an employee wants to reclaim a spot (spot owner)
     public function reclaimSpot()
     {
-        if ($this->spot->status == 'available') {
-            $this->spot->update(['status' => 'taken']);
+        if ($this->spot->status == 'pending') {
+            $this->spot->update(['status' => 'closed']);
         }
     }
 
     // Method for when an employee wants to release a spot (spot recipient)
     public function releaseSpot($spot)
     {
-        if ($spot->status == 'taken' && $this->has_spot == 1) {
-            $spot->update(['status' => 'available']);
+        if ($spot->status == 'accepted' && $this->has_spot == 1) {
+            $spot->update(['status' => 'pending']);
             $this->update(['has_spot' => 0]);
             DB::table('open_spots')
                 ->where('spot_id', $spot->id)
@@ -81,7 +81,7 @@ class User extends Model implements AuthenticatableContract, CanResetPasswordCon
         }
     }
 
-    // Sends notification to employee when spot becomes available
+    // Sends notification to employee when spot becomes pending
     public function sendNotification()
     {
         Mail::send('emails.parking', [], function($message) {
@@ -89,7 +89,7 @@ class User extends Model implements AuthenticatableContract, CanResetPasswordCon
         });
 
 
-        // while ($this->spot->status == 'available') {
+        // while ($this->spot->status == 'pending') {
         //     // send email notification logic
         // }
     }
@@ -104,13 +104,13 @@ class User extends Model implements AuthenticatableContract, CanResetPasswordCon
         }
     }
 
-    // Toggles spot status between available and taken and updates database
+    // Toggles spot status between pending and accepted and updates database
     public function toggleSpotStatus()
     {
-        if ($this->spot->status == 'available') {
-            $this->spot->update(['status' => 'taken']);
-        } elseif ($this->spot->status == 'taken') {
-            $this->spot->update(['status' => 'available']);
+        if ($this->spot->status == 'pending') {
+            $this->spot->update(['status' => 'accepted']);
+        } elseif ($this->spot->status == 'accepted') {
+            $this->spot->update(['status' => 'pending']);
         }
     }
 
