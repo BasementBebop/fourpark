@@ -101,7 +101,7 @@ class UserTableSeeder extends Seeder {
 		User::create([
 			'first_name' => 'Admin',
 			'last_name' => 'Admin',
-			'email' => 'chris@joywebb.com',
+			'email' => 'admin@admin.com',
 			'password' => Hash::make('password'),
 			'phone_number' => '503-548-1320',
 			'admin' => '1',
