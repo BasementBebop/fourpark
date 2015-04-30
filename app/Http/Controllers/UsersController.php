@@ -3,6 +3,7 @@
 use Auth;
 use Hash;
 use App\User;
+use App\Spot;
 use App\Http\Requests;
 use App\Http\Controllers\Controller;
 
@@ -104,6 +105,14 @@ class UsersController extends Controller {
 	{
 		$user = Auth::user();
 		$user->reclaimSpot();
+
+		return redirect('/');
+	}
+
+	public function wantsSpot()
+	{
+		$user = Auth::user();
+		$user->toggleWantsSpot();
 
 		return redirect('/');
 	}

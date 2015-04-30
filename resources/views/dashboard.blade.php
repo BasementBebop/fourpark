@@ -9,11 +9,13 @@
 		Welcome {{ $user->first_name }}!
 		@if ($user->has_spot == 1)
 			<small class="label bg-green-meadow">HAS PARKING SPOT</small>
-		@elseif ($user->has_spot == 1 && $user->spot_owner == 0)
+		@elseif ($user->has_spot == 0 && $user->spot_owner == 0)
 			<small class="label bg-red-intense">DOESN'T HAVE PARKING SPOT</small>
 		</div>
 		<div class="col-md-2">
-	  		<a href="#" class="btn green-meadow btn-block">I want a spot!</a>
+			@if ($user->wants_spot == 0)
+				{!! link_to_action('UsersController@wantsSpot', 'I want a spot!', [$user], ['class' => 'btn green-meadow btn-block']) !!}
+			@endif
 		</div>
 		@else
 			<small class="label bg-red-intense">DOESN'T HAVE PARKING SPOT</small>
@@ -26,6 +28,7 @@
 <!-- PARKING SPOT OWNER PORTLETS -->
 <div class="row">
 	<!-- RELEASE DAYS (PARKING SPOT OWNER) PORTLET-->
+	@if ($user->spot_owner == 1)
 	<div class="col-md-6">
 	  	<div class="portlet box blue">
 		  	<div class="portlet-title">
@@ -43,9 +46,9 @@
 			            </div>
 						<div class="col-md-12">
 							<div class="input-group input-large date-picker col-xs-offset-1 col-sm-offset-3 col-md-offset-1 input-daterange fa" data-date-format="yyyy-mm-dd" data-date-start-date="+0d">
-								{!! Form::text('open_date', null, ['class' => 'form-control']) !!}
+								{!! Form::text('open_date', null, ['class' => 'form-control', 'required']) !!}
 								<span class="input-group-addon">to</span>
-								{!! Form::text('end_date', null, ['class' => 'form-control']) !!}
+								{!! Form::text('end_date', null, ['class' => 'form-control', 'required']) !!}
 							</div>
 							<span class="help-block col-xs-offset-1 col-sm-offset-3 col-md-offset-1">
 							Select date range </span>
@@ -62,6 +65,7 @@
 	      	<!-- END FORM-->
 		</div>
   	</div>
+	@endif
 	<!-- END PORTLET-->
 	<!-- START PARKING SPOT RELEASE MODAL-->
 	<div class="modal fade" id="release" tabindex="-1" role="release" aria-hidden="true">
@@ -82,65 +86,67 @@
 	</div>
 	<!-- END PARKING SPOT RELEASE MODAL-->
     <!-- STATUS OF RELEASED DAYS (PARKING SPOT OWNER) PORTLET-->
-    <div class="col-md-6">
-		<div class="portlet box blue">
-			<div class="portlet-title">
-				<div class="caption">
-					Status of Released Days
+    @if ($user->spot_owner == 1)
+	    <div class="col-md-6">
+			<div class="portlet box blue">
+				<div class="portlet-title">
+					<div class="caption">
+						Status of Released Days
+					</div>
+				</div>
+				<div class="portlet-body">
+					<div class="table-scrollable">
+						<table class="table table-hover">
+						<thead>
+						<tr>
+							<th>
+								Start Date
+							</th>
+							<th>
+								End Date
+							</th>
+							<th>
+								Spot Claimer
+							</th>
+							<th>
+								Status
+							</th>
+						</tr>
+						</thead>
+						<tbody>
+								@foreach ($released_days as $released_day)
+									@if ($released_day->status != 'closed')
+										<tr>
+											<td>
+												{{ $released_day->open_date }}
+											</td>
+											<td>
+												{{ $released_day->end_date }}
+											</td>
+											<td>
+												@if ($released_day->assigned_user_id)
+													{{ $released_day->assigned_user_id }}
+												@else
+													Unclaimed
+												@endif
+											</td>
+					          				<td>
+					          					@if ($released_day->assigned_user_id == null)
+													{!! link_to_action('UsersController@reclaimSpot', 'Reclaim', [$user], ['class' => 'btn default btn-xs red-intense']) !!}
+					          					@else
+					          						<a class="btn default btn-xs red-intense disabled">Reclaim</a>
+					          					@endif
+											</td>
+										</tr>
+									@endif
+								@endforeach
+						</tbody>
+						</table>
+					</div>
 				</div>
 			</div>
-			<div class="portlet-body">
-				<div class="table-scrollable">
-					<table class="table table-hover">
-					<thead>
-					<tr>
-						<th>
-							Start Date
-						</th>
-						<th>
-							End Date
-						</th>
-						<th>
-							Spot Claimer
-						</th>
-						<th>
-							Status
-						</th>
-					</tr>
-					</thead>
-					<tbody>
-							@foreach ($released_days as $released_day)
-								@if ($released_day->status != 'closed')
-									<tr>
-										<td>
-											{{ $released_day->open_date }}
-										</td>
-										<td>
-											{{ $released_day->end_date }}
-										</td>
-										<td>
-											@if ($released_day->assigned_user_id)
-												{{ $released_day->assigned_user_id }}
-											@else
-												Unclaimed
-											@endif
-										</td>
-				          				<td>
-				          					@if ($released_day->assigned_user_id == null)
-												{!! link_to_action('UsersController@reclaimSpot', 'Reclaim', [$user], ['class' => 'btn default btn-xs red-intense']) !!}
-				          					@else
-				          						<a class="btn default btn-xs red-intense disabled">Reclaim</a>
-				          					@endif
-										</td>
-									</tr>
-								@endif
-							@endforeach
-					</tbody>
-					</table>
-				</div>
-			</div>
-		</div>
-    </div>
+	    </div>
+	@endif
   <!-- END STATUS OF RELEASED DAYS PORTLET-->
 </div>
 <!-- END ROW -->

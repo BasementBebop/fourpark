@@ -13,6 +13,7 @@ Route::get('all_employees', 'UsersController@showEmployees');
 
 Route::patch('giveUpSpot', 'UsersController@giveUpSpot');
 Route::get('reclaimSpot', 'UsersController@reclaimSpot');
+Route::get('wantsSpot', 'UsersController@wantsSpot');
 
 
 Route::resource('employees', 'UsersController', ['except' => 'show']);

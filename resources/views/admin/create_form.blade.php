@@ -121,7 +121,7 @@
 		</div>
 		{{-- END OTHER USER INFO --}}
 		{{-- BEGIN PASSWORD --}}
-{{--  		<div class="form-group">
+ 		<div class="form-group">
 			{!! Form::label('password', 'Password', ['class' => 'col-md-4 control-label']) !!}
 			<div class="col-md-8">
 				<div class="input-group">
@@ -132,7 +132,7 @@
 				</div>
 			</div>
 		</div>
-		<div class="form-group">
+{{-- 		<div class="form-group">
 			<label class="col-md-4 control-label">Confirm Password</label>
 			<div class="col-md-8">
 				<div class="input-group">
@@ -142,8 +142,8 @@
 					</span>
 				</div>
 			</div>
-		</div>
-	</div> --}}
+		</div> --}}
+	</div>
 	{{-- END PASSWORD --}}
 	<div class="form-actions">
 		<div class="row">
