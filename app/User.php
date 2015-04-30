@@ -29,6 +29,12 @@ class User extends Model implements AuthenticatableContract, CanResetPasswordCon
 
 // METHODS
 
+    // Returns all spots given up by spot owners
+    public function openSpots()
+    {
+        return DB::table('open_spots')->where('user_id', $this->id)->get();
+    }
+
     // Method for when an employee accepts a spot
     public function acceptSpot($spot)
     {

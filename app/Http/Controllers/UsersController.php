@@ -20,7 +20,8 @@ class UsersController extends Controller {
 	{
 		if (Auth::check()) {
 			$user = Auth::user();
-			return view('dashboard', compact('user'));
+			$released_days = $user->openSpots();
+			return view('dashboard', compact('user', 'released_days'));
 		} else {
 			return view('login');
 		}

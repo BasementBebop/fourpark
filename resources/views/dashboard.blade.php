@@ -114,64 +114,46 @@
 					<thead>
 					<tr>
 						<th>
-							Date
+							Start Date
+						</th>
+						<th>
+							End Date
 						</th>
 						<th>
 							Spot Claimer
 						</th>
+						<th>
+							Status
+						</th>
 					</tr>
 					</thead>
 					<tbody>
-					<tr>
-						<td>
-							5/12/15
-						</td>
-						<td>
-							Bruce Wayne
-						</td>
-          				<td>
-							<a href="javascript:;" class="btn default btn-xs red-intense disabled">
-							<i class="fa fa-edit"></i> Reclaim </a>
-						</td>
-					</tr>
-					<tr>
-						<td>
-                			6/11/15
-						</td>
-						<td>
-							Mark Wahlberg
-						</td>
-            			<td>
-							<a href="javascript:;" class="btn default btn-xs red-intense disabled">
-							<i class="fa fa-edit"></i> Reclaim </a>
-						</td>
-					</tr>
-					<tr>
-						<td>
-							6/13/15
-						</td>
-						<td>
-							<span class="label label-sm bg-blue">
-							Not Yet Claimed </span>
-						</td>
-            			<td>
-							<a href="javascript:;" class="btn default btn-xs red-intense">
-							<i class="fa fa-edit"></i> Reclaim </a>
-						</td>
-					</tr>
-					<tr>
-						<td>
-            				6/23/15
-						</td>
-            			<td>
-              				<span class="label label-sm bg-blue">
-							Not Yet Claimed </span>
-						</td>
-            			<td>
-							<a href="javascript:;" class="btn default btn-xs red-intense">
-							<i class="fa fa-edit"></i> Reclaim </a>
-						</td>
-					</tr>
+
+						@foreach ($released_days as $released_day)
+							<tr>
+								<td>
+									{{ $released_day->open_date }}
+								</td>
+								<td>
+									{{ $released_day->end_date }}
+								</td>
+								<td>
+									{{ $released_day->assigned_user_id }}
+								</td>
+		          				<td>
+		          					@if ($released_day->assigned_user_id == null)
+										<a href="#" class="btn default btn-xs red-intense">
+		          					@else
+		          						<a class="btn default btn-xs red-intense disabled">
+		          					@endif
+										 Reclaim </a>
+								</td>
+							</tr>
+						@endforeach
+
+
+
+
 					</tbody>
 					</table>
 				</div>
