@@ -16,6 +16,7 @@ class CreateUsersTable extends Migration {
 			$table->tinyInteger('admin')->default(0);
 			$table->tinyInteger('wants_spot')->default(0);
 			$table->tinyInteger('has_spot')->default(0);
+			$table->tinyInteger('spot_owner')->default(0);
 			$table->string('phone_number');
 			$table->string('email', 99)->unique();
 			$table->enum('alert_setting', ['email', 'sms', 'both', 'none'])->default('email');

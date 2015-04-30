@@ -46,47 +46,47 @@ class SpotTableSeeder extends Seeder {
 		Spot::create([
 			'user_id' => User::all()[1]->id,
 			'lot_name' => 'behind',
-			'status' => 'pending'
+			'status' => 'available'
 		]);
 		Spot::create([
 			'user_id' => User::all()[10]->id,
 			'lot_name' => 'creepy',
-			'status' => 'accepted'
+			'status' => 'taken'
 		]);
 		Spot::create([
 			'user_id' => User::all()[4]->id,
 			'lot_name' => 'behind',
-			'status' => 'pending'
+			'status' => 'available'
 		]);
 		Spot::create([
 			'user_id' => User::all()[7]->id,
 			'lot_name' => 'creepy',
-			'status' => 'accepted'
+			'status' => 'taken'
 		]);
 		Spot::create([
 			'user_id' => User::all()[20]->id,
 			'lot_name' => 'behind',
-			'status' => 'accepted'
+			'status' => 'taken'
 		]);
 		Spot::create([
 			'user_id' => User::all()[16]->id,
 			'lot_name' => 'creepy',
-			'status' => 'pending'
+			'status' => 'available'
 		]);
 		Spot::create([
 			'user_id' => User::all()[13]->id,
 			'lot_name' => 'behind',
-			'status' => 'pending'
+			'status' => 'available'
 		]);
 		Spot::create([
 			'user_id' => User::all()[19]->id,
 			'lot_name' => 'creepy',
-			'status' => 'accepted'
+			'status' => 'taken'
 		]);
 		Spot::create([
 			'user_id' => User::all()[0]->id,
 			'lot_name' => 'creepy',
-			'status' => 'accepted'
+			'status' => 'taken'
 		]);
 	}
 }
@@ -104,8 +104,9 @@ class UserTableSeeder extends Seeder {
 			'email' => 'admin@admin.com',
 			'password' => Hash::make('password'),
 			'phone_number' => '503-548-1320',
-			'admin' => '1',
-			'has_spot' => 1
+			'admin' => 1,
+			'has_spot' => 1,
+			'spot_owner' => 1
 			]);
 		User::create([
 			'first_name' => 'Laura',
@@ -113,7 +114,7 @@ class UserTableSeeder extends Seeder {
 			'email' => 'fake1@adpearance.com',
 			'password' => Hash::make('password'),
 			'phone_number' => '503-548-1320',
-			'wants_spot' => '1',
+			'wants_spot' => 1,
 			]);
 		User::create([
 			'first_name' => 'Aaron',
@@ -121,7 +122,8 @@ class UserTableSeeder extends Seeder {
 			'email' => 'fake2@adpearance.com',
 			'password' => Hash::make('password'),
 			'phone_number' => '503-548-1320',
-			'has_spot' => '1',
+			'has_spot' => 1,
+			'spot_owner' => 1,
 			'alert_setting' => 'sms'
 			]);
 		User::create([
@@ -130,7 +132,7 @@ class UserTableSeeder extends Seeder {
 			'email' => 'fake3@adpearance.com',
 			'password' => Hash::make('password'),
 			'phone_number' => '503-548-1320',
-			'wants_spot' => '1',
+			'wants_spot' => 1,
 			'alert_setting' => 'both'
 			]);
 		User::create([
@@ -139,7 +141,7 @@ class UserTableSeeder extends Seeder {
 			'email' => 'fake4@adpearance.com',
 			'password' => Hash::make('password'),
 			'phone_number' => '503-548-1320',
-			'wants_spot' => '1',
+			'wants_spot' => 1
 			]);
 		User::create([
 			'first_name' => 'Jeff',
@@ -147,7 +149,8 @@ class UserTableSeeder extends Seeder {
 			'email' => 'fake5@adpearance.com',
 			'password' => Hash::make('password'),
 			'phone_number' => '503-548-1320',
-			'has_spot' => '1',
+			'has_spot' => 1,
+			'spot_owner' => 1,
 			'alert_setting' => 'none'
 			]);
 		User::create([
@@ -156,8 +159,9 @@ class UserTableSeeder extends Seeder {
 			'email' => 'fake6@adpearance.com',
 			'password' => Hash::make('password'),
 			'phone_number' => '503-548-1320',
-			'has_spot' => '1',
-			'admin' => '1',
+			'has_spot' => 1,
+			'admin' => 1,
+			'spot_owner' => 1,
 			'alert_setting' => 'none'
 			]);
 		User::create([
@@ -166,7 +170,8 @@ class UserTableSeeder extends Seeder {
 			'email' => 'fake7@adpearance.com',
 			'password' => Hash::make('password'),
 			'phone_number' => '503-548-1320',
-			'has_spot' => '1',
+			'has_spot' => 1,
+			'spot_owner' => 1,
 			'alert_setting' => 'sms'
 			]);
 		User::create([
@@ -175,8 +180,9 @@ class UserTableSeeder extends Seeder {
 			'email' => 'fake8@adpearance.com',
 			'password' => Hash::make('password'),
 			'phone_number' => '503-548-1320',
-			'has_spot' => '1',
-			'admin' => '1',
+			'has_spot' => 1,
+			'spot_owner' => 1,
+			'admin' => 1
 			]);
 		User::create([
 			'first_name' => 'Stephanie',
@@ -184,7 +190,8 @@ class UserTableSeeder extends Seeder {
 			'email' => 'fake9@adpearance.com',
 			'password' => Hash::make('password'),
 			'phone_number' => '503-548-1320',
-			'has_spot' => '1',
+			'has_spot' => 1,
+			'spot_owner' => 1,
 			'alert_setting' => 'both'
 			]);
 		User::create([
@@ -193,7 +200,8 @@ class UserTableSeeder extends Seeder {
 			'email' => 'fake10@adpearance.com',
 			'password' => Hash::make('password'),
 			'phone_number' => '503-548-1320',
-			'has_spot' => '1',
+			'has_spot' => 1,
+			'spot_owner' => 1
 			]);
 		User::create([
 			'first_name' => 'John',
@@ -201,7 +209,8 @@ class UserTableSeeder extends Seeder {
 			'email' => 'fake11@adpearance.com',
 			'password' => Hash::make('password'),
 			'phone_number' => '503-548-1320',
-			'has_spot' => '1',
+			'has_spot' => 1,
+			'spot_owner' => 1,
 			'alert_setting' => 'both'
 			]);
 		User::create([
@@ -210,7 +219,8 @@ class UserTableSeeder extends Seeder {
 			'email' => 'fake12@adpearance.com',
 			'password' => Hash::make('password'),
 			'phone_number' => '503-548-1320',
-			'has_spot' => '1',
+			'has_spot' => 1,
+			'spot_owner' => 1,
 			'alert_setting' => 'none'
 			]);
 		User::create([
@@ -219,7 +229,8 @@ class UserTableSeeder extends Seeder {
 			'email' => 'fake13@adpearance.com',
 			'password' => Hash::make('password'),
 			'phone_number' => '503-548-1320',
-			'has_spot' => '1',
+			'has_spot' => 1,
+			'spot_owner' => 1
 			]);
 		User::create([
 			'first_name' => 'Bryan',
@@ -227,8 +238,9 @@ class UserTableSeeder extends Seeder {
 			'email' => 'fake14@adpearance.com',
 			'password' => Hash::make('password'),
 			'phone_number' => '503-548-1320',
-			'has_spot' => '1',
-			'admin' => '1',
+			'has_spot' => 1,
+			'admin' => 1,
+			'spot_owner' => 1,
 			'alert_setting' => 'sms'
 			]);
 		User::create([
@@ -237,7 +249,8 @@ class UserTableSeeder extends Seeder {
 			'email' => 'fake15@adpearance.com',
 			'password' => Hash::make('password'),
 			'phone_number' => '503-548-1320',
-			'has_spot' => '1',
+			'has_spot' => 1,
+			'spot_owner' => 1,
 			'alert_setting' => 'both'
 			]);
 		User::create([
@@ -246,8 +259,9 @@ class UserTableSeeder extends Seeder {
 			'email' => 'fake16@adpearance.com',
 			'password' => Hash::make('password'),
 			'phone_number' => '503-548-1320',
-			'has_spot' => '1',
-			'admin' => '1',
+			'has_spot' => 1,
+			'admin' => 1,
+			'spot_owner' => 1,
 			'alert_setting' => 'none'
 			]);
 		User::create([
@@ -256,7 +270,8 @@ class UserTableSeeder extends Seeder {
 			'email' => 'fake17@adpearance.com',
 			'password' => Hash::make('password'),
 			'phone_number' => '503-548-1320',
-			'has_spot' => '1',
+			'has_spot' => 1,
+			'spot_owner' => 1,
 			'alert_setting' => 'sms'
 			]);
 		User::create([
@@ -265,7 +280,8 @@ class UserTableSeeder extends Seeder {
 			'email' => 'fake18@adpearance.com',
 			'password' => Hash::make('password'),
 			'phone_number' => '503-548-1320',
-			'has_spot' => '1',
+			'has_spot' => 1,
+			'spot_owner' => 1
 			]);
 		User::create([
 			'first_name' => 'Kelly',
@@ -273,7 +289,8 @@ class UserTableSeeder extends Seeder {
 			'email' => 'fake19@adpearance.com',
 			'password' => Hash::make('password'),
 			'phone_number' => '503-548-1320',
-			'has_spot' => '1',
+			'has_spot' => 1,
+			'spot_owner' => 1
 			]);
 		User::create([
 			'first_name' => 'Stephen',
@@ -281,7 +298,8 @@ class UserTableSeeder extends Seeder {
 			'email' => 'fake20@adpearance.com',
 			'password' => Hash::make('password'),
 			'phone_number' => '503-548-1320',
-			'has_spot' => '1',
+			'has_spot' => 1,
+			'spot_owner' => 1,
 			'alert_setting' => 'sms'
 			]);
 		User::create([
@@ -290,7 +308,8 @@ class UserTableSeeder extends Seeder {
 			'email' => 'fake21@adpearance.com',
 			'password' => Hash::make('password'),
 			'phone_number' => '503-548-1320',
-			'has_spot' => '1',
+			'has_spot' => 1,
+			'spot_owner' => 1,
 			'alert_setting' => 'both'
 			]);
 		User::create([
@@ -299,7 +318,8 @@ class UserTableSeeder extends Seeder {
 			'email' => 'fake22@adpearance.com',
 			'password' => Hash::make('password'),
 			'phone_number' => '503-548-1320',
-			'has_spot' => '1',
+			'has_spot' => 1,
+			'spot_owner' => 1,
 			'alert_setting' => 'none'
 			]);
 

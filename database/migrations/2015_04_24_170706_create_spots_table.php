@@ -13,7 +13,7 @@ class CreateSpotsTable extends Migration {
 			$table->integer('user_id')->unsigned();
 			$table->foreign('user_id')->references('id')->on('users')->onDelete('cascade');
 			$table->enum('lot_name', ['creepy', 'behind']);
-			$table->enum('status', ['pending', 'closed', 'denied', 'accepted'])->default('pending');
+			$table->enum('status', ['available', 'taken'])->default('taken');
 			$table->dateTime('time_notification_sent')->nullable();
 			$table->timestamps();
 		});

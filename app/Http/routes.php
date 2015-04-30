@@ -11,8 +11,8 @@ Route::patch('settings', 'UsersController@currentUserUpdateSettings');
 
 Route::get('all_employees', 'UsersController@showEmployees');
 
-Route::patch('dashboard', 'UsersController@giveUpSpot');
-Route::get('dashboard', 'UsersController@reclaimSpot');
+Route::patch('giveUpSpot', 'UsersController@giveUpSpot');
+Route::get('reclaimSpot', 'UsersController@reclaimSpot');
 
 
 Route::resource('employees', 'UsersController', ['except' => 'show']);

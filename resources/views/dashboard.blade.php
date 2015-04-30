@@ -6,14 +6,17 @@
 <h3 class="page-title">
 	<div class="row">
 		<div class="col-md-6">
-		Welcome {{ Auth::user()->first_name }}!
-		@if (Auth::user()->has_spot == 1)
+		Welcome {{ $user->first_name }}!
+		@if ($user->has_spot == 1)
 			<small class="label bg-green-meadow">HAS PARKING SPOT</small>
-		@else
+		@elseif ($user->has_spot == 1 && $user->spot_owner == 0)
 			<small class="label bg-red-intense">DOESN'T HAVE PARKING SPOT</small>
 		</div>
 		<div class="col-md-2">
 	  		<a href="#" class="btn green-meadow btn-block">I want a spot!</a>
+		</div>
+		@else
+			<small class="label bg-red-intense">DOESN'T HAVE PARKING SPOT</small>
 		</div>
 		@endif		
 	</div>
@@ -106,31 +109,32 @@
 					</tr>
 					</thead>
 					<tbody>
-
-						@foreach ($released_days as $released_day)
-							<tr>
-								<td>
-									{{ $released_day->open_date }}
-								</td>
-								<td>
-									{{ $released_day->end_date }}
-								</td>
-								<td>
-									@if ($released_day->assigned_user_id)
-										{{ $released_day->assigned_user_id }}
-									@else
-										Unclaimed
-									@endif
-								</td>
-		          				<td>
-		          					@if ($released_day->assigned_user_id == null)
-										{!! link_to_action('UsersController@reclaimSpot', 'Reclaim', [$user], ['class' => 'btn default btn-xs red-intense']) !!}
-		          					@else
-		          						<a class="btn default btn-xs red-intense disabled">Reclaim</a>
-		          					@endif
-								</td>
-							</tr>
-						@endforeach
+							@foreach ($released_days as $released_day)
+								@if ($released_day->status != 'closed')
+									<tr>
+										<td>
+											{{ $released_day->open_date }}
+										</td>
+										<td>
+											{{ $released_day->end_date }}
+										</td>
+										<td>
+											@if ($released_day->assigned_user_id)
+												{{ $released_day->assigned_user_id }}
+											@else
+												Unclaimed
+											@endif
+										</td>
+				          				<td>
+				          					@if ($released_day->assigned_user_id == null)
+												{!! link_to_action('UsersController@reclaimSpot', 'Reclaim', [$user], ['class' => 'btn default btn-xs red-intense']) !!}
+				          					@else
+				          						<a class="btn default btn-xs red-intense disabled">Reclaim</a>
+				          					@endif
+										</td>
+									</tr>
+								@endif
+							@endforeach
 					</tbody>
 					</table>
 				</div>
@@ -143,123 +147,119 @@
 <!-- END PARKING SPOT OWNER PORTLETS -->
 
 <!-- NON-PARKING SPOT OWNER PORTLETS -->
-<div class="row">
-    <!-- BEGIN PARKING SPOT AVAILABLE PORTLET-->
-    <div class="col-md-6">
-	  	<div class="portlet box blue">
-	  		<div class="portlet-title">
-	  			<div class="caption">
-	  				Parking Spot Available
-	  			</div>
-	  		</div>
-	  		<div class="portlet-body">
-	  			<h4 class="block text-center">There is currently a parking spot available to you on <strong>5/12/14</strong></h4>
-				<div class="portlet-body util-btn-margin-bottom-5">
-					<div class="clearfix">
-		  				<a href="#add" class="btn green-meadow btn-block" data-toggle="modal">
-		  				Accept </a>
-	  				</div>
-					<div class="clearfix">
-		  				<a href="#deny" class="btn red-intense btn-block" data-toggle="modal">
-		  				Deny </a>
+@if ($user->spot_owner != 1)
+	<div class="row">
+	    <!-- BEGIN PARKING SPOT AVAILABLE PORTLET-->
+	    <div class="col-md-6">
+		  	<div class="portlet box blue">
+		  		<div class="portlet-title">
+		  			<div class="caption">
+		  				Parking Spot Available
 		  			</div>
-				</div>
-	  		</div>
-	  	</div>
-  </div>
-	<!-- END PARKING SPOT AVAILABLE PORTLET-->
+		  		</div>
+		  		<div class="portlet-body">
+		  			<h4 class="block text-center">There is currently a parking spot available to you on <strong>5/12/14</strong></h4>
+					<div class="portlet-body util-btn-margin-bottom-5">
+						<div class="clearfix">
+			  				<a href="#add" class="btn green-meadow btn-block" data-toggle="modal">
+			  				Accept </a>
+		  				</div>
+						<div class="clearfix">
+			  				<a href="#deny" class="btn red-intense btn-block" data-toggle="modal">
+			  				Deny </a>
+			  			</div>
+					</div>
+		  		</div>
+		  	</div>
+	  </div>
+		<!-- END PARKING SPOT AVAILABLE PORTLET-->
 
-	<!-- START PARKING SPOT ADD MODAL-->
-	<div class="modal fade" id="add" tabindex="-1" role="add" aria-hidden="true">
-		<div class="modal-dialog">
-			<div class="modal-content">
-				<div class="modal-header">
-					<button type="button" class="close" data-dismiss="modal" aria-hidden="true"></button>
-					<h4 class="modal-title">Parking successfully added</h4>
-				</div>
-				<div class="modal-body">
-					 Congratulations! You now have parking for <strong>5/12/14</strong>. You can view all claimed future parking in your dashboard.
-				</div>
-				<div class="modal-footer">
-					<button type="button" class="btn green-meadow" data-dismiss="modal">Got it</button>
-				</div>
-			</div>
-		</div>
-	</div>
-	<!-- END PARKING SPOT ADD MODAL-->
-
-	<!-- START MY UPCOMING PARKING (NON-PARKING SPOT OWNER) PORTLET-->
-	<div class="col-md-6">
-		<div class="portlet box blue">
-			<div class="portlet-title">
-				<div class="caption">
-					My Upcoming Parking
-				</div>
-			</div>
-			<div class="portlet-body">
-				<div class="table-scrollable">
-					<table class="table table-hover">
-					<thead>
-					<tr>
-						<th>
-							Date
-						</th>
-						<th>
-							Spot Owner
-						</th>
-					</tr>
-					</thead>
-					<tbody>
-					<tr>
-						<td>
-							5/12/15
-						</td>
-						<td>
-							Stanley Jenkins
-						</td>
-						<td>
-							<a href="javascript:;" class="btn default btn-xs red-intense">
-							<i class="fa fa-edit"></i> Release </a>
-						</td>
-					</tr>
-					<tr>
-						<td>
-							6/11/15
-						</td>
-						<td>
-							Frank Williams
-						</td>
-						<td>
-							<a href="javascript:;" class="btn default btn-xs red-intense">
-							<i class="fa fa-edit"></i> Release </a>
-						</td>
-					</tr>
-					<tr>
-						<td>
-							6/13/15
-						</td>
-						<td>
-							Henry Adams
-						</td>
-						<td>
-							<a href="javascript:;" class="btn default btn-xs red-intense">
-							<i class="fa fa-edit"></i> Release </a>
-						</td>
-					</tr>
-					</tbody>
-					</table>
+		<!-- START PARKING SPOT ADD MODAL-->
+		<div class="modal fade" id="add" tabindex="-1" role="add" aria-hidden="true">
+			<div class="modal-dialog">
+				<div class="modal-content">
+					<div class="modal-header">
+						<button type="button" class="close" data-dismiss="modal" aria-hidden="true"></button>
+						<h4 class="modal-title">Parking successfully added</h4>
+					</div>
+					<div class="modal-body">
+						 Congratulations! You now have parking for <strong>5/12/14</strong>. You can view all claimed future parking in your dashboard.
+					</div>
+					<div class="modal-footer">
+						<button type="button" class="btn green-meadow" data-dismiss="modal">Got it</button>
+					</div>
 				</div>
 			</div>
 		</div>
-	</div>
-	<!-- END MY UPCOMING PARKING (NON-PARKING SPOT OWNER) PORTLET-->
+		<!-- END PARKING SPOT ADD MODAL-->
 
-
-
-
-
-
-</div><!-- END ROW -->
-<!-- END NON-PARKING SPOT OWNER PORTLETS -->
+		<!-- START MY UPCOMING PARKING (NON-PARKING SPOT OWNER) PORTLET-->
+		<div class="col-md-6">
+			<div class="portlet box blue">
+				<div class="portlet-title">
+					<div class="caption">
+						My Upcoming Parking
+					</div>
+				</div>
+				<div class="portlet-body">
+					<div class="table-scrollable">
+						<table class="table table-hover">
+						<thead>
+						<tr>
+							<th>
+								Date
+							</th>
+							<th>
+								Spot Owner
+							</th>
+						</tr>
+						</thead>
+						<tbody>
+						<tr>
+							<td>
+								5/12/15
+							</td>
+							<td>
+								Stanley Jenkins
+							</td>
+							<td>
+								<a href="javascript:;" class="btn default btn-xs red-intense">
+								<i class="fa fa-edit"></i> Release </a>
+							</td>
+						</tr>
+						<tr>
+							<td>
+								6/11/15
+							</td>
+							<td>
+								Frank Williams
+							</td>
+							<td>
+								<a href="javascript:;" class="btn default btn-xs red-intense">
+								<i class="fa fa-edit"></i> Release </a>
+							</td>
+						</tr>
+						<tr>
+							<td>
+								6/13/15
+							</td>
+							<td>
+								Henry Adams
+							</td>
+							<td>
+								<a href="javascript:;" class="btn default btn-xs red-intense">
+								<i class="fa fa-edit"></i> Release </a>
+							</td>
+						</tr>
+						</tbody>
+						</table>
+					</div>
+				</div>
+			</div>
+		</div>
+		<!-- END MY UPCOMING PARKING (NON-PARKING SPOT OWNER) PORTLET-->
+	</div><!-- END ROW -->
+	<!-- END NON-PARKING SPOT OWNER PORTLETS -->
+@endif
 
 @stop

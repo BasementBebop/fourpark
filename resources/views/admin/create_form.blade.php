@@ -50,11 +50,11 @@
 				<div class="btn-group" data-toggle="buttons">
 					<label class="btn btn-default">
 						{!! Form::radio('wants_spot', 1, null, ['class' => 'toggle', 'required']) !!}
-						Want Spot
+						Wants Spot
 					</label>
 					<label class="btn btn-default">
 						{!! Form::radio('wants_spot', 0, null, ['class' => 'toggle', 'required']) !!}
-						Don't Want Spot
+						Doesn't Want Spot
 					</label>
 				</div>							
 			</div>

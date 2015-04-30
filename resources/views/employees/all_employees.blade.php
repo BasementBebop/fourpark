@@ -15,7 +15,7 @@
 					<div class="row">
 						<div class="col-md-6">
 							<div class="btn-group">
-								<a href="/employees/create" class="btn green-meadow">Add New <i class="fa fa-plus"></i></a>
+								<a href="/employees/create" class="btn green-meadow">New User <i class="fa fa-plus"></i></a>
 
 							</div>
 						</div>

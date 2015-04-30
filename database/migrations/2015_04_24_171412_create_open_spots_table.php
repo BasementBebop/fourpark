@@ -18,6 +18,7 @@ class CreateOpenSpotsTable extends Migration {
 			$table->foreign('assigned_user_id')->references('id')->on('users')->onDelete('cascade');
 			$table->date('open_date')->nullable();
 			$table->date('end_date')->nullable();
+			$table->enum('status', ['pending', 'closed'])->default('pending');
 			$table->timestamps();
 		});
 	}
