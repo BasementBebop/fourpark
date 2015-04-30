@@ -35,6 +35,12 @@ class User extends Model implements AuthenticatableContract, CanResetPasswordCon
         return DB::table('open_spots')->where('user_id', $this->id)->get();
     }
 
+		// Returns all spots claimed by current user
+		public function claimedSpots()
+    {
+        return DB::table('open_spots')->where('assigned_user_id', $this->id)->get();
+    }
+
     // Method for when an employee accepts a spot
     public function acceptSpot($spot)
     {
@@ -56,12 +62,13 @@ class User extends Model implements AuthenticatableContract, CanResetPasswordCon
             DB::table('open_spots')->insert([
                 'spot_id' => $this->spot->id,
                 'user_id' => $this->id,
+								'assigned_user_id' => 25,
                 'open_date' => $open_date,
-                'end_date' => $end_date    
+                'end_date' => $end_date
             ]);
         }
     }
-    
+
     // Method for when an employee wants to reclaim a spot (spot owner)
     public function reclaimSpot()
     {
@@ -135,9 +142,9 @@ class User extends Model implements AuthenticatableContract, CanResetPasswordCon
     }
 
     // Toggles admin attribute of employee => 1: is admin, 0: not admin
-    // 
+    //
     // NOT WORKING DUE TO MASS ASSIGNMENT - need Admin class?
-    // 
+    //
     public function toggleAdmin()
     {
     	if ($this->admin == 1) {
@@ -148,9 +155,9 @@ class User extends Model implements AuthenticatableContract, CanResetPasswordCon
     }
 
     // Toggles active attribute of employee => 1: is active, 0: not active
-    // 
+    //
     // NOT WORKING DUE TO MASS ASSIGNMENT - need Admin class?
-    // 
+    //
     public function toggleActive()
     {
     	if ($this->active == 1) {

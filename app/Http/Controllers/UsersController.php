@@ -22,7 +22,8 @@ class UsersController extends Controller {
 		if (Auth::check()) {
 			$user = Auth::user();
 			$released_days = $user->openSpots();
-			return view('dashboard', compact('user', 'released_days'));
+			$claimed_days = $user->claimedSpots();
+			return view('dashboard', compact('user', 'released_days', 'claimed_days'));
 		} else {
 			return view('login');
 		}
@@ -45,7 +46,7 @@ class UsersController extends Controller {
 
 	// public function show($id)
 	// {
-	// 	// 
+	// 	//
 	// }
 
 	public function edit($id)
@@ -63,7 +64,7 @@ class UsersController extends Controller {
 		$user = User::find($id);
 		$input = Request::all();
 		$user->update($input);
-	 
+
 		return redirect('/all_employees');
 	}
 
@@ -86,7 +87,7 @@ class UsersController extends Controller {
 		$user = Auth::user();
 		$input = Request::all();
 		$user->update($input);
-	 
+
 		return redirect('/settings');
 	}
 
@@ -97,7 +98,7 @@ class UsersController extends Controller {
 		$open_date = Request::input('open_date');
 		$end_date = Request::input('end_date');
 		$user->giveUpSpot($open_date, $end_date);
-	
+
 		return redirect('/');
 	}
 

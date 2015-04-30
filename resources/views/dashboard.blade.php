@@ -7,7 +7,7 @@
 	<div class="row">
 		<div class="col-md-6">
 		Welcome {{ $user->first_name }}!
-		@if ($user->has_spot == 1)
+		@if ($user->spot_owner == 1)
 			<small class="label bg-green-meadow">HAS PARKING SPOT</small>
 		@elseif ($user->has_spot == 0 && $user->spot_owner == 0)
 			<small class="label bg-red-intense">DOESN'T HAVE PARKING SPOT</small>
@@ -20,7 +20,7 @@
 		@else
 			<small class="label bg-red-intense">DOESN'T HAVE PARKING SPOT</small>
 		</div>
-		@endif		
+		@endif
 	</div>
 </h3>
 {{-- END PAGE TITLE --}}
@@ -57,7 +57,7 @@
 				</div>
 			</div>
 	      	<div class="portlet-body util-btn-margin-bottom-5">
-				{!! Form::submit('Submit', ['class' => 'btn green-meadow btn-block']) !!}		
+				{!! Form::submit('Submit', ['class' => 'btn green-meadow btn-block']) !!}
 				{!! Form::close() !!}
 	  			<div class="clearfix">
 	  			</div>
@@ -156,6 +156,7 @@
 @if ($user->spot_owner != 1)
 	<div class="row">
 	    <!-- BEGIN PARKING SPOT AVAILABLE PORTLET-->
+
 	    <div class="col-md-6">
 		  	<div class="portlet box blue">
 		  		<div class="portlet-title">
@@ -210,53 +211,38 @@
 				<div class="portlet-body">
 					<div class="table-scrollable">
 						<table class="table table-hover">
-						<thead>
-						<tr>
-							<th>
-								Date
-							</th>
-							<th>
-								Spot Owner
-							</th>
-						</tr>
-						</thead>
+							<thead>
+							<tr>
+								<th>
+									Start Date
+								</th>
+								<th>
+									End Date
+								</th>
+								<th>
+									Spot Owner
+								</th>
+							</tr>
+							</thead>
 						<tbody>
-						<tr>
-							<td>
-								5/12/15
-							</td>
-							<td>
-								Stanley Jenkins
-							</td>
-							<td>
-								<a href="javascript:;" class="btn default btn-xs red-intense">
-								<i class="fa fa-edit"></i> Release </a>
-							</td>
-						</tr>
-						<tr>
-							<td>
-								6/11/15
-							</td>
-							<td>
-								Frank Williams
-							</td>
-							<td>
-								<a href="javascript:;" class="btn default btn-xs red-intense">
-								<i class="fa fa-edit"></i> Release </a>
-							</td>
-						</tr>
-						<tr>
-							<td>
-								6/13/15
-							</td>
-							<td>
-								Henry Adams
-							</td>
-							<td>
-								<a href="javascript:;" class="btn default btn-xs red-intense">
-								<i class="fa fa-edit"></i> Release </a>
-							</td>
-						</tr>
+								@foreach ($claimed_days as $claimed_day)
+									@if ($claimed_day->status != 'closed')
+										<tr>
+											<td>
+												{{ $claimed_day->open_date }}
+											</td>
+											<td>
+												{{ $claimed_day->end_date }}
+											</td>
+											<td>
+												{{ $claimed_day->user_id }}
+											</td>
+					          	<td>
+					          		<a class="btn default btn-xs red-intense">Release</a>
+											</td>
+										</tr>
+									@endif
+								@endforeach
 						</tbody>
 						</table>
 					</div>
